@@ -80,7 +80,14 @@ local M = {
     { 'n', '<leader>lg',      ':LazyGit\n',                { desc = 'Open [L]azy [G]it' } },
     { 'n', '<leader>gt',      ':Telescope git_status\n',   { desc = 'Telescope [g]it s[t]atus' } },
     { 'n', '<leader>x',       ':bdelete\n',                { desc = 'Close buffer [x]' } },
+    { 'n', '<A-i>',           require 'FTerm'.toggle,      { desc = 'Toggle floating terminal' } },
+    { 't', '<A-i>',           require 'FTerm'.toggle,      { desc = 'Toggle floating terminal' } },
+    { 'n', '<C-h>',           '<C-w>h',                    { desc = 'Window left' } },
+    { 'n', '<C-l>',           '<C-w>l',                    { desc = 'Window right' } },
+    { 'n', '<C-j>',           '<C-w>j',                    { desc = 'Window down' } },
+    { 'n', '<C-k>',           '<C-w>k',                    { desc = 'Window up' } },
   },
+
   cmp_mappings = function(cmp, luasnip)
     return cmp.mapping.preset.insert {
       ['<C-n>'] = cmp.mapping.select_next_item(),
@@ -93,6 +100,7 @@ local M = {
       ['<S-Tab>'] = utils.cmp.prev_item(cmp, luasnip),
     }
   end,
+
   lsp_mappings = {
     { '<leader>rs',  vim.lsp.buf.rename,                     '[R]ename [s]ymbol' },
     { '<leader>ca',  vim.lsp.buf.code_action,                '[C]ode [a]ction' },
