@@ -75,6 +75,9 @@ local M = {
     { 'n', '<leader>ft',      ':Telescope\n',              { desc = '[F]ind in [t]elescope' } },
     { 'n', '<leader>th',      ':Telescope colorscheme\n',  { desc = 'Change [t][h]eme/colorscheme' } },
     { 'n', '<leader>fm',      ':Format\n',                 { desc = '[F]or[m]at document' } },
+    { 'n', '<leader>lg',      ':LazyGit\n',                { desc = 'Open [L]azy [G]it' } },
+    { 'n', '<leader>gt',      ':Telescope git_status\n',   { desc = 'Telescope [g]it s[t]atus' } },
+    { 'n', '<leader>x',       ':bdelete\n',                { desc = 'Close buffer [x]' } },
   },
   cmp_mappings = function(cmp, luasnip)
     return cmp.mapping.preset.insert {
