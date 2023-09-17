@@ -49,6 +49,7 @@ local utils = {
     require("Comment.api").toggle.linewise.current()
   end,
   toggle_comment_visual = "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+  find_all = ':Telescope find_files follow=true no_ignore=true hidden=true\n',
 }
 
 local M = {
@@ -58,7 +59,8 @@ local M = {
     { 'n', '<leader>fb',      tel_bltn.buffers,            { desc = '[F]ind [b]uffer' } },
     { 'n', '<leader>fcf',     utils.infile_search,         { desc = '[F]ind in [c]urrent file' } },
     { 'n', '<leader>fg',      tel_bltn.git_files,          { desc = '[F]ind [g]it files' } },
-    { 'n', '<leader>ff',      tel_bltn.find_files,         { desc = '[F]ind [f]iles' } },
+    { 'n', '<leader>ff',      tel_bltn.find_files,         { desc = '[F]ind [f]ile' } },
+    { 'n', '<leader>fa',      utils.find_all,              { desc = '[F]ind [a]ll' } },
     { 'n', '<leader>fh',      tel_bltn.help_tags,          { desc = '[F]ind [h]elp' } },
     { 'n', '<leader>ft',      ':Telescope\n',              { desc = '[F]ind in [t]elescope' } },
     { 'n', '<leader>fcw',     tel_bltn.grep_string,        { desc = '[F]ind current hovered [w]ord by grep' } },
