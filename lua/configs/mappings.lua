@@ -58,7 +58,8 @@ local utils = {
     require 'FTerm'.toggle()
   end,
   lazygit = function()
-    require 'lazygit'.lazygit()
+    require 'lazygit'
+    vim.cmd ':LazyGit\n'
   end
 }
 
