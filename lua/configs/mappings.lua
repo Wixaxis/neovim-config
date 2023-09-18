@@ -48,8 +48,12 @@ local utils = {
   toggle_comment_normal = function()
     require("Comment.api").toggle.linewise.current()
   end,
+
   toggle_comment_visual = "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
   find_all = ':Telescope find_files follow=true no_ignore=true hidden=true\n',
+  format = function()
+    vim.lsp.buf.format { async = true }
+  end,
 }
 
 local M = {
@@ -76,7 +80,7 @@ local M = {
     { 'n', '<leader>c<Tab>',  ':tabclose\n',               { desc = 'Close tab' } },
     { 'n', '<leader>ft',      ':Telescope\n',              { desc = '[F]ind in [t]elescope' } },
     { 'n', '<leader>th',      ':Telescope colorscheme\n',  { desc = 'Change [t][h]eme/colorscheme' } },
-    { 'n', '<leader>fm',      ':Format\n',                 { desc = '[F]or[m]at document' } },
+    { 'n', '<leader>fm',      utils.format,                { desc = '[F]or[m]at document' } },
     { 'n', '<leader>lg',      ':LazyGit\n',                { desc = 'Open [L]azy [G]it' } },
     { 'n', '<leader>gt',      ':Telescope git_status\n',   { desc = 'Telescope [g]it s[t]atus' } },
     { 'n', '<leader>x',       ':bdelete\n',                { desc = 'Close buffer [x]' } },
