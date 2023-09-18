@@ -15,14 +15,12 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
-local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-  html = { filetypes = { 'html', 'twig', 'hbs', 'slim' } },
+require 'lspconfig'.coffeesense.setup {
+  cmd = { 'npx', 'coffeesense-language-server' ,'--stdio' },
+}
 
+local servers = {
+  html = { filetypes = { 'html', 'slim' } },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -40,13 +38,22 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
+
+
 mason_lspconfig.setup_handlers {
   function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
+    if servers[server_name] == nil then
+      require 'lspconfig'[server_name].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      }
+    else
+      require('lspconfig')[server_name].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers[server_name],
+        filetypes = (servers[server_name] or {}).filetypes,
+      }
+    end
   end
 }
