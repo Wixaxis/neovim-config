@@ -6,5 +6,6 @@ return {
     'hrsh7th/cmp-nvim-lsp',
     'rafamadriz/friendly-snippets',
   },
-  enabled = require 'configs.plugs'.nvim_cmp
+  enabled = require 'configs.plugs'.nvim_cmp,
+  event = 'BufEnter *.*',
 }
