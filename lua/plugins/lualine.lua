@@ -3,10 +3,11 @@ return {
   opts = {
     options = {
       icons_enabled = true,
-      theme = 'onedark',
+      theme = require 'configs.plugs'.theme,
       component_separators = '|',
       section_separators = '',
+      globalstatus = true,
     },
   },
-  enabled = require'configs.plugs'.lualine
+  enabled = require 'configs.plugs'.lualine
 }
