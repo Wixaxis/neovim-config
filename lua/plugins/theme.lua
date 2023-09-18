@@ -1,8 +1,20 @@
+local set_theme = function(name)
+  return function()
+    if require 'configs.plugs'.theme == name then
+      vim.cmd.colorscheme(name)
+    end
+  end
+end
+
 return {
-  'navarasu/onedark.nvim',
-  priority = 1000,
-  config = function()
-    vim.cmd.colorscheme 'onedark'
-  end,
-  enabled = require 'configs.plugs'.theme
+  {
+    'navarasu/onedark.nvim',
+    priority = 1000,
+    config = set_theme('onedark'),
+  },
+  {
+    'rmehri01/onenord.nvim',
+    priority = 1000,
+    config = set_theme('onenord'),
+  },
 }
