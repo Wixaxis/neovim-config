@@ -54,6 +54,9 @@ local utils = {
   format = function()
     vim.lsp.buf.format { async = true }
   end,
+  floating_terminal = function()
+    require 'FTerm'.toggle()
+  end
 }
 
 local M = {
@@ -81,11 +84,11 @@ local M = {
     { 'n', '<leader>ft',      ':Telescope\n',              { desc = '[F]ind in [t]elescope' } },
     { 'n', '<leader>th',      ':Telescope colorscheme\n',  { desc = 'Change [t][h]eme/colorscheme' } },
     { 'n', '<leader>fm',      utils.format,                { desc = '[F]or[m]at document' } },
-    { 'n', '<leader>lg',      ':LazyGit\n',                { desc = 'Open [L]azy [G]it' } },
+    { 'n', '<leader>lg',      require 'lazygit'.lazygit,   { desc = 'Open [L]azy [G]it' } },
     { 'n', '<leader>gt',      ':Telescope git_status\n',   { desc = 'Telescope [g]it s[t]atus' } },
     { 'n', '<leader>x',       ':bdelete\n',                { desc = 'Close buffer [x]' } },
-    { 'n', '<A-i>',           require 'FTerm'.toggle,      { desc = 'Toggle floating terminal' } },
-    { 't', '<A-i>',           require 'FTerm'.toggle,      { desc = 'Toggle floating terminal' } },
+    { 'n', '<A-i>',           utils.floating_terminal,     { desc = 'Toggle floating terminal' } },
+    { 't', '<A-i>',           utils.floating_terminal,     { desc = 'Toggle floating terminal' } },
     { 'n', '<C-h>',           '<C-w>h',                    { desc = 'Window left' } },
     { 'n', '<C-l>',           '<C-w>l',                    { desc = 'Window right' } },
     { 'n', '<C-j>',           '<C-w>j',                    { desc = 'Window down' } },
