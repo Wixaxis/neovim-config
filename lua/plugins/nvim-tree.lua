@@ -8,5 +8,6 @@ return {
   config = function()
     require("nvim-tree").setup {}
   end,
-  enabled = require 'configs.plugs'.nvim_tree
+  enabled = require 'configs.plugs'.nvim_tree,
+  keys = '<leader>e',
 }
