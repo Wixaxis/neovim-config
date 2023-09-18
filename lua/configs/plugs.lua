@@ -10,7 +10,7 @@ return {
   scope = true, -- tab line
   bufferline = true, -- tab/buffer line 2
   telescope = true, -- search swiss tool
-  theme = true, -- colorscheme
+  theme = 'onenord', -- colorscheme
   vim_fugitive = true, -- git client (replace with lazygit)
   vim_rhubarb = true, -- dunno
   vim_sleuth = true, -- dunno
