@@ -1,13 +1,13 @@
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
-  lazy = false,
+  lazy = true,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
-  config = function()
-    require("nvim-tree").setup {}
-  end,
-  enabled = require 'configs.plugs'.nvim_tree,
-  keys = '<leader>e',
+  opts = {
+    disable_netrw = true,
+    filters = { git_ignored = false },
+
+  },
 }
