@@ -8,4 +8,5 @@ return {
     require("telescope").load_extension("lazygit")
   end,
   lazy = true,
+  cmd = 'LazyGit'
 }
