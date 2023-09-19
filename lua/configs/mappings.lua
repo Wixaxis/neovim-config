@@ -1,5 +1,4 @@
 local tel_bltn = require 'telescope.builtin'
-local nvim_tree = require 'nvim-tree'
 local utils = {
   cmp = {
     confirm_mapping = function(cmp)
@@ -60,12 +59,16 @@ local utils = {
   lazygit = function()
     require 'lazygit'
     vim.cmd ':LazyGit\n'
+  end,
+  focus_tree = function()
+    require'nvim-tree'
+    vim.cmd ':NvimTreeFindFile'
   end
 }
 
 local M = {
   base_mappings = {
-    { 'n', '<leader>e',       nvim_tree.focus,                { desc = 'Fil[e] tree' } },
+    { 'n', '<leader>e',       utils.focus_tree,               { desc = 'Fil[e] tree' } },
     { 'n', '<leader>fo',      tel_bltn.oldfiles,              { desc = '[F]ind [o]ldfiles' } },
     { 'n', '<leader>fb',      tel_bltn.buffers,               { desc = '[F]ind [b]uffer' } },
     { 'n', '<leader>fcf',     utils.infile_search,            { desc = '[F]ind in [c]urrent file' } },
