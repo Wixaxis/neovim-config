@@ -1,3 +1,4 @@
+-- TODO: Maybe add a clock bottom-right instead of curr position in document?
 return {
   'nvim-lualine/lualine.nvim',
   opts = {

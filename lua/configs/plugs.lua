@@ -1,3 +1,5 @@
+-- TODO: Remove this file and it's usage - failed idea
+-- NOTE: Maybe a .env file controlling this stuff ??
 return {
   comment = true, -- commenting lines
   gitsigns = true, -- changes visualised

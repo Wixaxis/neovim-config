@@ -1,3 +1,4 @@
+-- TODO: maybe consider some indent rainbow plugin instead?
 return {
   'lukas-reineke/indent-blankline.nvim',
   opts = {
