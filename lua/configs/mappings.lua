@@ -62,7 +62,7 @@ local utils = {
   end,
   focus_tree = function()
     require 'nvim-tree'
-    vim.cmd ':NvimTreeFindFile'
+    vim.cmd ':NvimTreeFindFile\n'
   end
 }
 
