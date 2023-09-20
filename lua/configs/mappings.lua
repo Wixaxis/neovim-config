@@ -61,7 +61,7 @@ local utils = {
     vim.cmd ':LazyGit\n'
   end,
   focus_tree = function()
-    require'nvim-tree'
+    require 'nvim-tree'
     vim.cmd ':NvimTreeFindFile'
   end
 }
