@@ -63,7 +63,25 @@ local utils = {
   focus_tree = function()
     require 'nvim-tree'
     vim.cmd ':NvimTreeFindFile\n'
-  end
+  end,
+  save_session = function()
+    local curr_session_name = require 'possession.session'.session_name
+    if curr_session_name then
+      require 'possession'.save(curr_session_name)
+    else
+      vim.ui.input({ prompt = 'Enter name for new session: ' }, function(input)
+        require 'possession'.save(input)
+      end)
+    end
+  end,
+  print_session = function()
+    local curr_session_name = require 'possession.session'.session_name
+    if curr_session_name then
+      vim.notify('Current session: ' .. curr_session_name)
+    else
+      vim.notify('Currently not in a session', vim.log.levels.WARN)
+    end
+  end,
 }
 
 local M = {
@@ -93,6 +111,8 @@ local M = {
     { 'n', '<leader>fm',      utils.format,                   { desc = '[F]or[m]at document' } },
     { 'n', '<leader>lg',      utils.lazygit,                  { desc = 'Open [L]azy [G]it' } },
     { 'n', '<leader>sl',      ':Telescope possession list\n', { desc = '[S]essions - [l]ist' } },
+    { 'n', '<leader>ss',      utils.save_session,             { desc = '[S]essions - [s]ave current' } },
+    { 'n', '<leader>sp',      utils.print_session,            { desc = '[S]essions - [p]rint current session name' } },
     { 'n', '<leader>gt',      ':Telescope git_status\n',      { desc = 'Telescope [g]it s[t]atus' } },
     { 'n', '<leader>x',       ':bdelete\n',                   { desc = 'Close buffer [x]' } },
     { 'n', '<A-i>',           utils.floating_terminal,        { desc = 'Toggle floating terminal' } },
