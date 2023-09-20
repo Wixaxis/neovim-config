@@ -1,4 +1,5 @@
 local tel_bltn = require 'telescope.builtin'
+-- TODO: Move utils to a separate file, it grew out of proportions
 local utils = {
   cmp = {
     confirm_mapping = function(cmp)
@@ -89,7 +90,7 @@ local M = {
     { 'n', '<leader>e',       utils.focus_tree,               { desc = 'Fil[e] tree' } },
     { 'n', '<leader>fo',      tel_bltn.oldfiles,              { desc = '[F]ind [o]ldfiles' } },
     { 'n', '<leader>fb',      tel_bltn.buffers,               { desc = '[F]ind [b]uffer' } },
-    { 'n', '<leader>fcf',     utils.infile_search,            { desc = '[F]ind in [c]urrent file' } },
+    { 'n', '<leader>fcf',     utils.infile_search,            { desc = '[F]ind in [c]urrent [f]ile' } },
     { 'n', '<leader>fg',      tel_bltn.git_files,             { desc = '[F]ind [g]it files' } },
     { 'n', '<leader>ff',      tel_bltn.find_files,            { desc = '[F]ind [f]ile' } },
     { 'n', '<leader>fa',      utils.find_all,                 { desc = '[F]ind [a]ll' } },
@@ -108,14 +109,15 @@ local M = {
     { 'n', '<leader>c<Tab>',  ':tabclose\n',                  { desc = 'Close tab' } },
     { 'n', '<leader>ft',      ':Telescope\n',                 { desc = '[F]ind in [t]elescope' } },
     { 'n', '<leader>th',      ':Telescope colorscheme\n',     { desc = 'Change [t][h]eme/colorscheme' } },
+    { 'n', '<leader>td',      ':TodoTelescope\n',             { desc = 'List [t]o[d]o tags in project' } },
     { 'n', '<leader>fm',      utils.format,                   { desc = '[F]or[m]at document' } },
     { 'n', '<leader>lg',      utils.lazygit,                  { desc = 'Open [L]azy [G]it' } },
-    { 'n', '<leader>sl',      ':Telescope possession list\n', { desc = '[S]essions - [l]ist' } },
+    { 'n', '<leader>sl',      ':Telescope possession list\n', { desc = '[S]essions - [l]ist' } }, -- TODO: expand session management, It's poor
     { 'n', '<leader>ss',      utils.save_session,             { desc = '[S]essions - [s]ave current' } },
     { 'n', '<leader>sp',      utils.print_session,            { desc = '[S]essions - [p]rint current session name' } },
     { 'n', '<leader>gt',      ':Telescope git_status\n',      { desc = 'Telescope [g]it s[t]atus' } },
     { 'n', '<leader>x',       ':bdelete\n',                   { desc = 'Close buffer [x]' } },
-    { 'n', '<A-i>',           utils.floating_terminal,        { desc = 'Toggle floating terminal' } },
+    { 'n', '<A-i>',           utils.floating_terminal,        { desc = 'Toggle floating terminal' } }, -- TODO: expand terminals support (create, search/select, remove, notify, send, move)
     { 't', '<A-i>',           utils.floating_terminal,        { desc = 'Toggle floating terminal' } },
     { 'n', '<C-h>',           '<C-w>h',                       { desc = 'Window left' } },
     { 'n', '<C-l>',           '<C-w>l',                       { desc = 'Window right' } },
@@ -154,6 +156,7 @@ local M = {
   },
 }
 
+-- TODO: Move to utils table (and separate file)
 for _, v in ipairs(M.base_mappings) do
   vim.keymap.set(v[1], v[2], v[3], v[4])
 end
