@@ -1,89 +1,5 @@
 local tel_bltn = require 'telescope.builtin'
--- TODO: Move utils to a separate file, it grew out of proportions
-local utils = {
-  cmp = {
-    confirm_mapping = function(cmp)
-      return cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Replace,
-        select = true,
-      }
-    end,
-
-    next_item = function(cmp, luasnip)
-      return cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        elseif luasnip.expand_or_locally_jumpable() then
-          luasnip.expand_or_jump()
-        else
-          fallback()
-        end
-      end, { 'i', 's' })
-    end,
-
-    prev_item = function(cmp, luasnip)
-      return cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        elseif luasnip.locally_jumpable(-1) then
-          luasnip.jump(-1)
-        else
-          fallback()
-        end
-      end, { 'i', 's' })
-    end,
-  },
-
-  infile_search = function()
-    tel_bltn.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-      winblend = 10,
-      previewer = false,
-    })
-  end,
-
-  wksp_list_folders = function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end,
-
-  toggle_comment_normal = function()
-    require("Comment.api").toggle.linewise.current()
-  end,
-
-  toggle_comment_visual = "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-  find_all = ':Telescope find_files follow=true no_ignore=true hidden=true\n',
-  format = function()
-    vim.lsp.buf.format { async = true }
-  end,
-  floating_terminal = function()
-    require 'FTerm'.toggle()
-  end,
-  lazygit = function()
-    require 'lazygit'
-    vim.cmd ':LazyGit\n'
-  end,
-  focus_tree = function()
-    require 'nvim-tree'
-    vim.cmd ':NvimTreeFindFile\n'
-  end,
-  save_session = function()
-    local curr_session_name = require 'possession.session'.session_name
-    if curr_session_name then
-      require 'possession'.save(curr_session_name)
-    else
-      vim.ui.input({ prompt = 'Enter name for new session: ' }, function(input)
-        require 'possession'.save(input)
-      end)
-    end
-  end,
-  print_session = function()
-    local curr_session_name = require 'possession.session'.session_name
-    if curr_session_name then
-      vim.notify('Current session: ' .. curr_session_name)
-    else
-      vim.notify('Currently not in a session', vim.log.levels.WARN)
-    end
-  end,
-}
+local utils = require 'utils'
 
 local M = {
   base_mappings = {
@@ -156,9 +72,6 @@ local M = {
   },
 }
 
--- TODO: Move to utils table (and separate file)
-for _, v in ipairs(M.base_mappings) do
-  vim.keymap.set(v[1], v[2], v[3], v[4])
-end
+utils.set_keymaps_table(M.base_mappings)
 
 return M
