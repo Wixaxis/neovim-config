@@ -3,15 +3,19 @@ local system = vim.loop.os_uname().sysname
 -- TODO: Make it re-runnable function, to be called as reset live changes
 local M = {}
 
+M.set_font = function(font_str) vim.o.guifont = font_str end
+
+M.set_scale = function(scale) vim.g.neovide_scale_factor = scale end
+
 M.set_defaults = function()
   if system == 'Linux' then
-    vim.o.guifont = "FiraCode Nerd Font Mono:h9"
+    M.set_font "FiraCode Nerd Font Mono:h9"
     vim.g.neovide_scale_factor = 0.7
     vim.g.neovide_transparency = 0.9
     vim.g.transparency = 1
     vim.notify 'Loaded Linux Neovide config'
   elseif system == 'Darwin' then
-    vim.o.guifont = "FiraCode Nerd Font Mono:h14"
+    M.set_font "FiraCode Nerd Font Mono:h14"
     vim.g.neovide_scale_factor = 0.9
     vim.g.neovide_input_macos_alt_is_meta = true
     vim.g.neovide_transparency = 0
@@ -21,8 +25,6 @@ M.set_defaults = function()
     vim.notify 'Loaded MacOS Neovide config'
   end
 end
-
-
 
 return M
 
