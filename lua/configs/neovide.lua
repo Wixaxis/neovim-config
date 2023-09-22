@@ -11,11 +11,10 @@ elseif system == 'Darwin' then
   vim.o.guifont = "FiraCode Nerd Font Mono:h14"
   vim.g.neovide_scale_factor = 0.9
   vim.g.neovide_input_macos_alt_is_meta = true -- TODO: doesn't work :/
-  vim.g.neovide_transparency = 0.9
+  vim.g.neovide_transparency = 0
   vim.g.transparency = 0.9
-  -- vim.g.neovide_background_color = "#000000" .. string.format("%x", math.floor((255 * (vim.g.transparency or 0.8))))
-  -- TODO: read current background color from current theme
-  vim.g.neovide_background_color = "#000000" .. string.format("%x", math.floor(255 * 0.1))
+  local bg_color = string.sub(vim.api.nvim_cmd({ cmd = 'hi', args = { 'normal' } }, { output = true }), -7, -1)
+  vim.g.neovide_background_color = bg_color .. string.format("%x", math.floor((255 * (vim.g.transparency or 0.8))))
   vim.notify 'Loaded MacOS Neovide config'
 end
 
