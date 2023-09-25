@@ -8,6 +8,7 @@ M.set_font = function(font_str) vim.o.guifont = font_str end
 M.set_scale = function(scale) vim.g.neovide_scale_factor = scale end
 
 M.set_defaults = function()
+  vim.g.neovide_cursor_vfx_mode = "railgun"
   if system == 'Linux' then
     M.set_font "FiraCode Nerd Font Mono:h9"
     vim.g.neovide_scale_factor = 0.7
