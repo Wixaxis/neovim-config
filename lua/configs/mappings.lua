@@ -28,7 +28,7 @@ local M = {
     { 'n', '<leader>td',      ':TodoTelescope\n',             { desc = 'List [t]o[d]o tags in project' } },
     { 'n', '<leader>fm',      utils.format,                   { desc = '[F]or[m]at document' } },
     { 'n', '<leader>lg',      utils.lazygit,                  { desc = 'Open [L]azy [G]it' } },
-    { 'n', '<leader>sl',      ':Telescope possession list\n', { desc = '[S]essions - [l]ist' } }, -- TODO: expand session management, It's poor
+    { 'n', '<leader>sl',      ':Telescope possession list\n', { desc = '[S]essions - [l]ist' } }, -- TODO: expand session management (delete, rename)
     { 'n', '<leader>ss',      utils.save_session,             { desc = '[S]essions - [s]ave current' } },
     { 'n', '<leader>sp',      utils.print_session,            { desc = '[S]essions - [p]rint current session name' } },
     { 'n', '<leader>gt',      ':Telescope git_status\n',      { desc = 'Telescope [g]it s[t]atus' } },
@@ -71,6 +71,8 @@ local M = {
     { '<leader>wl',  utils.wksp_list_folders,                '[W]orkspace folder [l]ist' },
   },
 }
+
+-- TODO: add mappings and commands to control neovide 
 
 utils.set_keymaps_table(M.base_mappings)
 
