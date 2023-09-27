@@ -1,6 +1,6 @@
 require 'configs.core'
-require 'scripts.ensure-lazy'
-require('lazy').setup({ { import = 'plugins' } }, {})
+require 'utils'.ensure_lazy_installed()
+require 'lazy'.setup({ { import = 'plugins' } }, {})
 require 'configs.mappings'
 if vim.g.neovide then require 'configs.neovide'.set_defaults() end
 pcall(require 'telescope'.load_extension, 'fzf')
