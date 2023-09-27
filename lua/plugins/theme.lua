@@ -1,10 +1,7 @@
--- TODO: If this function is even necessary, move to utils
-local set_theme = function(name)
+local set_theme_if_default = function(name)
   return function()
-    -- TODO: rethink how themes are set on startup, maybe the .env file idea?
-    if require 'configs.plugs'.theme == name then
-      vim.cmd.colorscheme(name)
-    end
+    if require 'defaults'.theme ~= name then return; end
+    vim.cmd.colorscheme(name)
   end
 end
 
@@ -12,10 +9,10 @@ end
 return {
   {
     'navarasu/onedark.nvim',
-    config = set_theme('onedark'),
+    config = set_theme_if_default('onedark'),
   },
   {
     'rmehri01/onenord.nvim',
-    config = set_theme('onenord'),
+    config = set_theme_if_default('onenord'),
   },
 }
