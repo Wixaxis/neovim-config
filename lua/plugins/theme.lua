@@ -1,18 +1,11 @@
-local set_theme_if_default = function(name)
-  return function()
-    if require 'defaults'.theme ~= name then return; end
-    vim.cmd.colorscheme(name)
-  end
-end
+local def_config = require 'utils'.set_default_colorscheme
+vim.g.neon_style = "dark" -- default | doom | dark | light
 
--- TODO: expand themes list, maybe some compiled collection of themes?
 return {
-  {
-    'navarasu/onedark.nvim',
-    config = set_theme_if_default('onedark'),
-  },
-  {
-    'rmehri01/onenord.nvim',
-    config = set_theme_if_default('onenord'),
-  },
+  'navarasu/onedark.nvim',
+  'rmehri01/onenord.nvim',
+  'AlexvZyl/nordic.nvim',
+  'shaunsingh/nord.nvim',
+  'ray-x/starry.nvim',
+  'rafamadriz/neon',
 }
