@@ -29,7 +29,7 @@ M.set_defaults = function()
     M.set_font "FiraCode Nerd Font Mono:h14"
     M.set_scale(0.9)
     M.set_transparency(0.9)
-    vim.g.neovide_input_macos_alt_is_meta = true
+    vim.g.neovide_input_macos_alt_is_meta = true -- TODO: auto on/off in normal/insert modes
     vim.notify 'Loaded MacOS Neovide config'
   end
 end
