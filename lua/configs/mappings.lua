@@ -65,7 +65,7 @@ local M = {
     { '<leader>fsc', tel_bltn.lsp_document_symbols,          '[F]ind [s]ymbol in [c]urrent buffer' },
     { '<leader>fsw', tel_bltn.lsp_dynamic_workspace_symbols, '[F]ind [s]ymbol in [w]orkspace' },
     { 'K',           vim.lsp.buf.hover,                      'Hover' },
-    { '<C-k>',       vim.lsp.buf.signature_help,             'Signature' },
+    { '<C-g>',       vim.lsp.buf.signature_help,             'Signature' },
     { '<leader>wa',  vim.lsp.buf.add_workspace_folder,       '[W]orkspace folder [a]dd' },
     { '<leader>wr',  vim.lsp.buf.remove_workspace_folder,    '[W]orkspace folder [r]emove' },
     { '<leader>wl',  utils.wksp_list_folders,                '[W]orkspace folder [l]ist' },
