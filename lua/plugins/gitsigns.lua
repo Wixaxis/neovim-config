@@ -15,5 +15,4 @@ return {
       vim.keymap.set('n', '<leader>ph', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[P]review [H]unk' })
     end,
   },
-  enabled = require 'configs.plugs'.gitsigns
 }

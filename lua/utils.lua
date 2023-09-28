@@ -1,37 +1,47 @@
 local M = {}
 
-M.cmp = {
-	confirm_mapping = function(cmp)
-		return cmp.mapping.confirm {
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-		}
-	end,
+M.ensure_lazy_installed = function()
+	local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+	if not vim.loop.fs_stat(lazypath) then
+		vim.fn.system { 'git', 'clone', '--filter=blob:none', 'https://github.com/folke/lazy.nvim.git',
+			'--branch=stable',
+			lazypath }
+	end
+	vim.opt.rtp:prepend(lazypath)
+end
 
-	next_item = function(cmp, luasnip)
-		return cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expand_or_locally_jumpable() then
-				luasnip.expand_or_jump()
-			else
-				fallback()
-			end
-		end, { 'i', 's' })
-	end,
+M.cmp = {}
 
-	prev_item = function(cmp, luasnip)
-		return cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			elseif luasnip.locally_jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, { 'i', 's' })
-	end,
-}
+M.cmp.confirm_mapping = function(cmp)
+	return cmp.mapping.confirm {
+		behavior = cmp.ConfirmBehavior.Replace,
+		select = true,
+	}
+end
+
+M.cmp.next_item = function(cmp, luasnip)
+	return cmp.mapping(function(fallback)
+		if cmp.visible() then
+			cmp.select_next_item()
+		elseif luasnip.expand_or_locally_jumpable() then
+			luasnip.expand_or_jump()
+		else
+			fallback()
+		end
+	end, { 'i', 's' })
+end
+
+M.cmp.prev_item = function(cmp, luasnip)
+	return cmp.mapping(function(fallback)
+		if cmp.visible() then
+			cmp.select_prev_item()
+		elseif luasnip.locally_jumpable(-1) then
+			luasnip.jump(-1)
+		else
+			fallback()
+		end
+	end, { 'i', 's' })
+end
 
 M.infile_search = function()
 	require 'telescope.builtin'.current_buffer_fuzzy_find(require 'telescope.themes'.get_dropdown {
@@ -100,6 +110,17 @@ M.str_split = function(inputstr, sep)
 		table.insert(t, str)
 	end
 	return t
+end
+
+M.set_default_colorscheme = function()
+	local default_theme = require 'defaults'.theme
+	local current_theme = vim.cmd.colorscheme()
+	if current_theme == default_theme then
+		vim.notify('Theme [' .. current_theme .. '] already set, omitting...')
+		return
+	end
+	vim.notify('Setting theme to ' .. default_theme)
+	vim.cmd.colorscheme(default_theme)
 end
 
 return M

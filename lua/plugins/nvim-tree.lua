@@ -1,4 +1,4 @@
--- TODO: Consider replacing with telescope file browser? (not find_file telescope builtin)
+-- NOTE: Consider replacing with telescope file browser? (not find_file telescope builtin)
 return {
   "nvim-tree/nvim-tree.lua",
   version = "*",

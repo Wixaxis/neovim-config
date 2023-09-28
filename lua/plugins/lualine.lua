@@ -1,14 +1,16 @@
--- TODO: Maybe add a clock bottom-right instead of curr position in document?
 return {
   'nvim-lualine/lualine.nvim',
+  dependencies = 'archibate/lualine-time',
   opts = {
     options = {
       icons_enabled = true,
-      theme = require 'configs.plugs'.theme,
+      theme = 'auto',
       component_separators = '|',
       section_separators = '',
       globalstatus = true,
     },
+    sections = {
+      lualine_z = { 'cdate', 'ctime' },
+    },
   },
-  enabled = require 'configs.plugs'.lualine
 }

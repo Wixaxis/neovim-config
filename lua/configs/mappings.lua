@@ -73,6 +73,7 @@ local M = {
 }
 
 -- TODO: add mappings and commands to control neovide 
+-- TODO: add mappings and commands to control yanky
 
 utils.set_keymaps_table(M.base_mappings)
 

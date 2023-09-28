@@ -9,5 +9,4 @@ return {
     { 'folke/neodev.nvim', config = true, ft = 'lua' },
     'williamboman/mason-lspconfig.nvim',
   },
-  enabled = require 'configs.plugs'.nvim_lspconfig
 }

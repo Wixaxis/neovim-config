@@ -21,5 +21,4 @@ return {
       },
     },
   },
-  enabled = require 'configs.plugs'.telescope
 }

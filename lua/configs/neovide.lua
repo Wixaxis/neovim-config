@@ -22,14 +22,14 @@ M.set_defaults = function()
   vim.g.neovide_cursor_vfx_mode = "railgun"
   if system == 'Linux' then
     M.set_font "FiraCode Nerd Font Mono:h9"
-    M.set_scale(0.7)
+    M.set_scale(1)
     M.set_transparency(0.9)
     vim.notify 'Loaded Linux Neovide config'
   elseif system == 'Darwin' then
     M.set_font "FiraCode Nerd Font Mono:h14"
     M.set_scale(0.9)
     M.set_transparency(0.9)
-    vim.g.neovide_input_macos_alt_is_meta = true
+    vim.g.neovide_input_macos_alt_is_meta = true -- TODO: auto on/off in normal/insert modes
     vim.notify 'Loaded MacOS Neovide config'
   end
 end
