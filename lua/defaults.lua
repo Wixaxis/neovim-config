@@ -1,1 +1,24 @@
-return { theme = 'onenord' }
+return {
+	theme = 'deepocean',
+	neovide = {
+		-- every setting can be put both on system specific and general levels
+		-- system specific settings take precedence over general
+		font = 'FiraCode Nerd Font Mono',
+		font_size = '12',
+		scale = 1,
+		transparency = 1,
+		cursor = 'railgun',
+		linux = {
+			font_size = '9',
+			scale = 0.7,
+			transparency = 0.9,
+		},
+		mac = {
+			font_size = '14',
+			scale = 0.9,
+			transparency = 0.9,
+			alt_is_meta = 'auto' -- only mac specific
+		},
+		windows = {},
+	},
+}

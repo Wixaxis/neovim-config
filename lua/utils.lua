@@ -61,7 +61,7 @@ M.toggle_comment_visual = "<ESC><cmd>lua require('Comment.api').toggle.linewise(
 
 M.find_all = ':Telescope find_files follow=true no_ignore=true hidden=true\n'
 
-M.format = function() vim.lsp.buf.format { async = true } end
+M.format_current_buffer = function() vim.lsp.buf.format { async = true } end
 
 M.floating_terminal = function() require 'FTerm'.toggle() end
 
@@ -121,6 +121,34 @@ M.set_default_colorscheme = function()
 	end
 	vim.notify('Setting theme to ' .. default_theme)
 	vim.cmd.colorscheme(default_theme)
+end
+
+M.sys_name = vim.loop.os_uname().sysname
+
+M.neovide = {}
+
+M.neovide.set_font = function(font_str) vim.o.guifont = font_str end -- TODO: write font selector from available fonts
+
+M.neovide.set_scale = function(scale) vim.g.neovide_scale_factor = scale end
+
+M.neovide.scale_up = function() M.set_scale(vim.g.neovide_scale_factor + 0.1) end   -- TODO: set keybinding
+
+M.neovide.scale_down = function() M.set_scale(vim.g.neovide_scale_factor - 0.1) end -- TODO: set keybinding
+
+M.neovide.set_cursor = function(cursor) vim.g.neovide_cursor_vfx_mode = cursor end
+
+M.neovide.set_transparency = function(opacity)
+	if M.sys_name == 'Darwin' then
+		vim.g.neovide_transparency = 0
+		vim.g.transparency = opacity
+		local bg_color = string.sub(vim.api.nvim_cmd(
+			{ cmd = 'hi', args = { 'normal' } },
+			{ output = true }), -7, -1)
+		vim.g.neovide_background_color = bg_color .. string.format("%x", math.floor(255 * opacity))
+	elseif M.sys_name == 'Linux' then
+		vim.g.neovide_transparency = opacity
+		vim.g.transparency = 1
+	end
 end
 
 return M
