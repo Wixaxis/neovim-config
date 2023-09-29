@@ -39,6 +39,7 @@ local M = {
     { 'n', '<C-l>',           '<C-w>l',                       { desc = 'Window right' } },
     { 'n', '<C-j>',           '<C-w>j',                       { desc = 'Window down' } },
     { 'n', '<C-k>',           '<C-w>k',                       { desc = 'Window up' } },
+    { 'n', '<leader>p',       ':Telescope yank_history\n',    { desc = '[P]aste from yank history' } },
   },
 
   cmp_mappings = function(cmp, luasnip)
@@ -73,7 +74,6 @@ local M = {
 }
 
 -- TODO: add mappings and commands to control neovide
--- TODO: add mappings and commands to control yanky
 
 utils.set_keymaps_table(M.base_mappings)
 
