@@ -1,5 +1,9 @@
 local M = {}
 
+M.cmp = require 'utils.cmp'
+
+M.neovide = require 'utils.neovide'
+
 M.ensure_lazy_installed = function()
 	local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 	local install_script = { 'git', 'clone', '--filter=blob:none',
@@ -8,44 +12,12 @@ M.ensure_lazy_installed = function()
 	vim.opt.rtp:prepend(lazypath)
 end
 
-M.cmp = {}
-
-M.cmp.confirm_mapping = function(cmp)
-	return cmp.mapping.confirm {
-		behavior = cmp.ConfirmBehavior.Replace,
-		select = true,
-	}
-end
-
-M.cmp.next_item = function(cmp, luasnip)
-	return cmp.mapping(function(fallback)
-		if cmp.visible() then
-			cmp.select_next_item()
-		elseif luasnip.expand_or_locally_jumpable() then
-			luasnip.expand_or_jump()
-		else
-			fallback()
-		end
-	end, { 'i', 's' })
-end
-
-M.cmp.prev_item = function(cmp, luasnip)
-	return cmp.mapping(function(fallback)
-		if cmp.visible() then
-			cmp.select_prev_item()
-		elseif luasnip.locally_jumpable(-1) then
-			luasnip.jump(-1)
-		else
-			fallback()
-		end
-	end, { 'i', 's' })
-end
-
 M.infile_search = function()
-	require 'telescope.builtin'.current_buffer_fuzzy_find(require 'telescope.themes'.get_dropdown {
-		winblend = 10,
-		previewer = false,
-	})
+	require 'telescope.builtin'.current_buffer_fuzzy_find(
+		require 'telescope.themes'.get_dropdown {
+			winblend = 10,
+			previewer = false,
+		})
 end
 
 M.wksp_list_folders = function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end
@@ -100,9 +72,7 @@ M.set_keymaps_table = function(keymaps_table)
 end
 
 M.str_split = function(inputstr, sep)
-	if sep == nil then
-		sep = "%s"
-	end
+	if sep == nil then sep = "%s"; end
 	local t = {}
 	for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
 		table.insert(t, str)
@@ -122,31 +92,5 @@ M.set_default_colorscheme = function()
 end
 
 M.sys_name = vim.loop.os_uname().sysname
-
-M.neovide = {}
-
-M.neovide.set_font = function(font_str) vim.o.guifont = font_str end -- TODO: write font selector from available fonts
-
-M.neovide.set_scale = function(scale) vim.g.neovide_scale_factor = scale end
-
-M.neovide.scale_up = function() M.set_scale(vim.g.neovide_scale_factor + 0.1) end   -- TODO: set keybinding
-
-M.neovide.scale_down = function() M.set_scale(vim.g.neovide_scale_factor - 0.1) end -- TODO: set keybinding
-
-M.neovide.set_cursor = function(cursor) vim.g.neovide_cursor_vfx_mode = cursor end
-
-M.neovide.set_transparency = function(opacity)
-	if M.sys_name == 'Darwin' then
-		vim.g.neovide_transparency = 0
-		vim.g.transparency = opacity
-		local bg_color = string.sub(vim.api.nvim_cmd(
-			{ cmd = 'hi', args = { 'normal' } },
-			{ output = true }), -7, -1)
-		vim.g.neovide_background_color = bg_color .. string.format("%x", math.floor(255 * opacity))
-	elseif M.sys_name == 'Linux' then
-		vim.g.neovide_transparency = opacity
-		vim.g.transparency = 1
-	end
-end
 
 return M
