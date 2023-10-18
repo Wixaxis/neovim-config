@@ -26,6 +26,12 @@ M.set_transparency = function(opacity)
 	end
 end
 
+M.get_transparency = function()
+	if sys_name == 'Darwin' then return vim.g.transparency; end
+	if sys_name == 'Linux' then return vim.g.neovide_transparency; end
+	return 1
+end
+
 M.set_macos_alt_is_meta = function(mode)
 	if sys_name ~= 'Darwin' or mode == nil then return; end
 
@@ -46,6 +52,15 @@ M.set_macos_alt_is_meta = function(mode)
 	else
 		vim.g.neovide_input_macos_alt_is_meta = mode
 	end
+end
+
+M.set_colorscheme_autocmd = function()
+	if sys_name ~= 'Darwin' then return; end
+	vim.api.nvim_create_autocmd('Colorscheme', {
+		callback = function()
+			M.set_transparency(M.get_transparency())
+		end,
+	})
 end
 
 return M

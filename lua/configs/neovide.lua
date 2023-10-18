@@ -26,4 +26,6 @@ end
 
 M.set_defaults()
 
+neovide.set_colorscheme_autocmd()
+
 return M
