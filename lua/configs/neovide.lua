@@ -20,12 +20,7 @@ M.set_defaults = function()
   neovide.set_font(def_font .. ':h' .. def_font_size)
   neovide.set_scale(sys_defaults.scale or defaults.scale or 1)
   neovide.set_transparency(sys_defaults.transparency or defaults.transparency or 1)
-  if sys_defaults.alt_is_meta == 'auto' then
-    -- TODO: implement auto switching alt is meta in input mode
-    vim.g.neovide_input_macos_alt_is_meta = true
-  elseif sys_defaults.alt_is_meta ~= nil then
-    vim.g.neovide_input_macos_alt_is_meta = sys_defaults.alt_is_meta
-  end
+  neovide.set_macos_alt_is_meta(sys_defaults.alt_is_meta)
   vim.notify('Loaded neovide config for ' .. sys_name)
 end
 
