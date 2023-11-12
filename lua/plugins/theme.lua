@@ -8,4 +8,14 @@ return {
   'shaunsingh/nord.nvim',
   'ray-x/starry.nvim',
   'rafamadriz/neon',
+  'folke/tokyonight.nvim',
+  'bluz71/vim-nightfly-colors',
+  'catppuccin/nvim',
+  'rebelot/kanagawa.nvim',
+  'ellisonleao/gruvbox.nvim',
+  'rose-pine/neovim',
+  'nyoom-engineering/oxocarbon.nvim',
+  'olimorris/onedarkpro.nvim',
+  'tiagovla/tokyodark.nvim',
+
 }
