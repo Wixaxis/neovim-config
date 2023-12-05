@@ -6,7 +6,6 @@ return {
   'rmehri01/onenord.nvim',
   'AlexvZyl/nordic.nvim',
   'shaunsingh/nord.nvim',
-  'ray-x/starry.nvim',
   'rafamadriz/neon',
   'folke/tokyonight.nvim',
   'bluz71/vim-nightfly-colors',
@@ -17,5 +16,4 @@ return {
   'nyoom-engineering/oxocarbon.nvim',
   'olimorris/onedarkpro.nvim',
   'tiagovla/tokyodark.nvim',
-
 }
