@@ -9,8 +9,8 @@ return {
 		transparency = 1,
 		cursor = 'railgun',
 		linux = {
-			font_size = '9',
-			scale = 0.7,
+			font_size = '12',
+			scale = 1,
 			transparency = 0.9,
 		},
 		mac = {
