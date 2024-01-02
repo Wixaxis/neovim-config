@@ -1,5 +1,5 @@
 return {
-	theme = 'onenord',
+	theme = 'nordic',
 	neovide = {
 		-- every setting can be put both on system specific and general levels
 		-- system specific settings take precedence over general

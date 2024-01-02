@@ -87,7 +87,7 @@ M.set_default_colorscheme = function()
 		vim.notify('Theme [' .. current_theme .. '] already set, omitting...')
 		return
 	end
-	vim.notify('Setting theme to ' .. default_theme)
+	vim.notify('Set theme to ' .. default_theme)
 	vim.cmd.colorscheme(default_theme)
 end
 
