@@ -63,4 +63,9 @@ M.set_colorscheme_autocmd = function()
 	})
 end
 
+M.set_float_win_blur = function(blur_amount)
+	vim.g.neovide_floating_blur_amount_x = blur_amount
+	vim.g.neovide_floating_blur_amount_y = blur_amount
+end
+
 return M

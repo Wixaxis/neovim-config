@@ -8,6 +8,7 @@ return {
 		scale = 1,
 		transparency = 1,
 		cursor = 'railgun',
+		float_win_blur = 10.0, -- amount of blur for floating windows inside neovim
 		linux = {
 			font_size = '12',
 			scale = 1,
