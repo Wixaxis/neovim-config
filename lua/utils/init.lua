@@ -35,6 +35,8 @@ M.format_current_buffer = function() vim.lsp.buf.format { async = true } end
 
 M.floating_terminal = function() require 'FTerm'.toggle() end
 
+M.commander = function() require 'commander'.show() end
+
 M.lazygit = function()
 	require 'lazygit'
 	vim.cmd ':LazyGit\n'
@@ -67,7 +69,13 @@ end
 
 M.set_keymaps_table = function(keymaps_table)
 	for _, v in ipairs(keymaps_table) do
-		vim.keymap.set(v[1], v[2], v[3], v[4])
+		require('commander').add({ {
+			desc = v[4].desc,
+			cmd = v[3],
+			keys = { v[1], v[2] }
+		} }, {})
+		-- old way of setting before commander
+		-- vim.keymap.set(v[1], v[2], v[3], v[4])
 	end
 end
 
