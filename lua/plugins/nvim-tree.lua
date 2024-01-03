@@ -9,6 +9,7 @@ return {
   opts = {
     disable_netrw = true,
     filters = { git_ignored = false },
-
+    select_prompts = true,
+    view = { float = { enable = true } },
   },
 }
