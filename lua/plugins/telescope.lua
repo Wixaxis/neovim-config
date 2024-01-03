@@ -13,6 +13,9 @@ return {
   },
   opts = {
     defaults = {
+      wrap_results = true,
+      -- border = false, 
+      borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
       mappings = {
         i = {
           ['<C-u>'] = false,
