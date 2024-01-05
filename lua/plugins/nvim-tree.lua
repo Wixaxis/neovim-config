@@ -10,6 +10,14 @@ return {
     disable_netrw = true,
     filters = { git_ignored = false },
     select_prompts = true,
-    view = { float = { enable = true } },
+    view = {
+      width = {},
+      float = {
+        enable = true,
+        open_win_config = {
+          height = 60,
+        }
+      }
+    },
   },
 }
