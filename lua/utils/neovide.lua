@@ -14,7 +14,7 @@ M.set_cursor = function(cursor) vim.g.neovide_cursor_vfx_mode = cursor end
 
 M.set_transparency = function(opacity)
 	if sys_name == 'Darwin' then
-		vim.g.neovide_transparency = 0
+		vim.g.neovide_transparency = 0.5
 		vim.g.transparency = opacity
 		local bg_color = string.sub(vim.api.nvim_cmd(
 			{ cmd = 'hi', args = { 'normal' } },
