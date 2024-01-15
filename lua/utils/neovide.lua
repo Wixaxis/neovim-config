@@ -22,7 +22,7 @@ M.set_transparency = function(opacity)
 		vim.g.neovide_background_color = bg_color .. string.format("%x", math.floor(255 * opacity))
 	elseif sys_name == 'Linux' then
 		vim.g.neovide_transparency = opacity
-		vim.g.transparency = 1
+		vim.g.transparency = 0.5
 	end
 end
 
