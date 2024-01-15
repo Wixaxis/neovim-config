@@ -7,5 +7,10 @@ return {
       telescope = { enable = true },
       lazy = { enable = true }
     }
-  }
+  },
+  commander = { {
+    keys = { 'n', '<leader><leader>' },
+    cmd = require 'utils'.commander,
+    desc = 'Commander'
+  } },
 }

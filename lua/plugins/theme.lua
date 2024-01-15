@@ -1,5 +1,11 @@
-local def_config = require 'utils'.set_default_colorscheme
+-- require 'utils'.set_default_colorscheme()
 vim.g.neon_style = "dark" -- default | doom | dark | light
+
+require 'commander'.add({ {
+  keys = { 'n', '<leader>th' },
+  cmd = ':Telescope colorscheme\n',
+  desc = 'Change [t][h]eme/colorscheme'
+} }, {})
 
 return {
   'navarasu/onedark.nvim',

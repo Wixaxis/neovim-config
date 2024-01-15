@@ -20,4 +20,12 @@ return {
       }
     },
   },
+  commander = { {
+    keys = { 'n', '<leader>e' },
+    cmd = function()
+      require 'nvim-tree'
+      vim.cmd ':NvimTreeFindFile\n'
+    end,
+    desc = 'Fil[e] tree'
+  } },
 }
