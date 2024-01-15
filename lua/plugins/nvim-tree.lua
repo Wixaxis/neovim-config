@@ -15,7 +15,7 @@ return {
       float = {
         enable = true,
         open_win_config = {
-          height = 60,
+          height = 40,
         }
       }
     },
