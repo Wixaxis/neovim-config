@@ -2,9 +2,9 @@
 vim.g.neon_style = "dark" -- default | doom | dark | light
 
 require 'commander'.add({ {
-  keys = { 'n', '<leader>th' },
+  keys = { 'n', '<leader>th', { desc = 'Change [t][h]eme' } },
   cmd = ':Telescope colorscheme\n',
-  desc = 'Change [t][h]eme/colorscheme'
+  desc = 'change theme | pick colorscheme | telescope -> colorscheme'
 } }, {})
 
 return {

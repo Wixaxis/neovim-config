@@ -2,15 +2,15 @@ return {
   "FeiyouG/commander.nvim",
   dependencies = { "nvim-telescope/telescope.nvim" },
   opts = {
-    components = { 'KEYS', 'DESC', 'CAT', 'CMD' },
+    components = { 'KEYS', 'DESC', 'CAT' },
     integration = {
       telescope = { enable = true },
       lazy = { enable = true }
     }
   },
   commander = { {
-    keys = { 'n', '<leader><leader>' },
+    keys = { { 'n', 'v' }, '<leader><leader>', { desc = 'Commander' } },
     cmd = require 'utils'.commander,
-    desc = 'Commander'
+    desc = 'open commander'
   } },
 }

@@ -4,17 +4,17 @@ return {
   lazy = true,
   commander = {
     {
-      keys = { 'n', '<leader>/' },
+      keys = { 'n', '<leader>/', { desc = 'Toggle comment' } },
       cmd = function()
         require 'Comment'
         require "Comment.api".toggle.linewise.current()
       end,
-      desc = 'Toggle comment'
+      desc = 'comment / uncomment current line'
     },
     {
-      keys = { 'v', '<leader>/' },
-      cmd =  "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-      desc = 'Toggle comment'
+      keys = { 'v', '<leader>/', { desc = 'Toggle comment' } },
+      cmd = "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+      desc = 'comment / uncomment selected lines'
     },
   },
 }

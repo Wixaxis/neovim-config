@@ -21,11 +21,11 @@ return {
     },
   },
   commander = { {
-    keys = { 'n', '<leader>e' },
+    keys = { 'n', '<leader>e', { desc = 'Fil[e] tree' } },
     cmd = function()
       require 'nvim-tree'
       vim.cmd ':NvimTreeFindFile\n'
     end,
-    desc = 'Fil[e] tree'
+    desc = 'open file tree & focus on current file'
   } },
 }

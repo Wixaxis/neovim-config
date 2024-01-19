@@ -3,19 +3,19 @@ local utils = require 'utils'
 
 local M = {
   base_mappings = {
-    { keys = { 'n', '<Tab>' },           cmd = ':bnext\n',                  desc = 'Next buffer' },
-    { keys = { 'n', '<S-Tab>' },         cmd = ':bprev\n',                  desc = 'Previous buffer' },
-    { keys = { 'n', '<leader><Tab>' },   cmd = ':tabnext\n',                desc = 'Next tab' },
-    { keys = { 'n', '<leader><S-Tab>' }, cmd = ':tabprev\n',                desc = 'Previous tab' },
-    { keys = { 'n', '<leader>n<Tab>' },  cmd = ':tabnew\n',                 desc = 'New tab' },
-    { keys = { 'n', '<leader>c<Tab>' },  cmd = ':tabclose\n',               desc = 'Close tab' },
-    { keys = { 'n', '<leader>fm' },      cmd = utils.format_current_buffer, desc = '[F]or[m]at document' },
-    { keys = { 'n', '<leader>gt' },      cmd = ':Telescope git_status\n',   desc = 'Telescope [g]it s[t]atus' },
-    { keys = { 'n', '<leader>x' },       cmd = ':bdelete\n',                desc = 'Close buffer [x]' },
-    { keys = { 'n', '<C-h>' },           cmd = '<C-w>h',                    desc = 'Window left' },
-    { keys = { 'n', '<C-l>' },           cmd = '<C-w>l',                    desc = 'Window right' },
-    { keys = { 'n', '<C-j>' },           cmd = '<C-w>j',                    desc = 'Window down' },
-    { keys = { 'n', '<C-k>' },           cmd = '<C-w>k',                    desc = 'Window up' },
+    { keys = { 'n', '<Tab>', { desc = 'Next buffer' } },                   cmd = ':bnext\n',                  desc = 'go to next buffer' },
+    { keys = { 'n', '<S-Tab>', { desc = 'Previous buffer' } },             cmd = ':bprev\n',                  desc = 'go to prev buffer' },
+    { keys = { 'n', '<leader><Tab>', { desc = 'Next tab' } },              cmd = ':tabnext\n',                desc = 'go to next tab' },
+    { keys = { 'n', '<leader><S-Tab>', { desc = 'Prev tab' } },            cmd = ':tabprev\n',                desc = 'go to prev tab' },
+    { keys = { 'n', '<leader>n<Tab>', { desc = 'New tab' } },              cmd = ':tabnew\n',                 desc = 'open new tab' },
+    { keys = { 'n', '<leader>c<Tab>', { desc = 'Close tab' } },            cmd = ':tabclose\n',               desc = 'close current tab' },
+    { keys = { 'n', '<leader>fm', { desc = '[F]or[m]at document' } },      cmd = utils.format_current_buffer, desc = 'format document' },
+    { keys = { 'n', '<leader>gt', { desc = 'Telescope [g]it s[t]atus' } }, cmd = ':Telescope git_status\n',   desc = 'open telescope -> git_status' },
+    { keys = { 'n', '<leader>x', { desc = 'Close buffer [x]' } },          cmd = ':bdelete\n',                desc = 'close current buffer' },
+    { keys = { 'n', '<C-h>', { desc = 'Window left' } },                   cmd = '<C-w>h',                    desc = 'go to window left' },
+    { keys = { 'n', '<C-l>', { desc = 'Window right' } },                  cmd = '<C-w>l',                    desc = 'go to window right' },
+    { keys = { 'n', '<C-j>', { desc = 'Window down' } },                   cmd = '<C-w>j',                    desc = 'go to window below (down)' },
+    { keys = { 'n', '<C-k>', { desc = 'Window up' } },                     cmd = '<C-w>k',                    desc = 'go to window above (up)' },
   },
 
   cmp_mappings = function(cmp, luasnip)

@@ -10,11 +10,11 @@ return {
   lazy = true,
   cmd = 'LazyGit',
   commander = { {
-    keys = { 'n', '<leader>lg' },
+    keys = { 'n', '<leader>lg', { desc = 'Open [L]azy [G]it' } },
     cmd = function()
       require 'lazygit'
       vim.cmd ':LazyGit\n'
     end,
-    desc = 'Open [L]azy [G]it'
+    desc = 'open lazygit'
   } },
 }

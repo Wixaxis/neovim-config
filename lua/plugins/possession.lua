@@ -7,12 +7,12 @@ return {
   end,
   commander = {
     {
-      keys = { 'n', '<leader>sl' },
+      keys = { 'n', '<leader>sl', { desc = '[S]essions - [l]ist' } },
       cmd = ':Telescope possession list\n',
-      desc = '[S]essions - [l]ist'
+      desc = 'open saved sessions & load picked'
     }, -- TODO: expand session management (delete, rename)
     {
-      keys = { 'n', '<leader>ss' },
+      keys = { 'n', '<leader>ss', { desc = '[S]essions - [s]ave current' } },
       cmd = function()
         local curr_session_name = require 'possession.session'.session_name
         if curr_session_name then
@@ -23,10 +23,10 @@ return {
           end)
         end
       end,
-      desc = '[S]essions - [s]ave current'
+      desc = 'save current session'
     },
     {
-      keys = { 'n', '<leader>sp' },
+      keys = { 'n', '<leader>sp', { desc = '[S]essions - [p]rint current session name' } },
       cmd = function()
         local curr_session_name = require 'possession.session'.session_name
         if curr_session_name then
@@ -35,7 +35,7 @@ return {
           vim.notify('Currently not in a session', vim.log.levels.WARN)
         end
       end,
-      desc = '[S]essions - [p]rint current session name'
+      desc = 'print name of current session'
     },
   },
 }
