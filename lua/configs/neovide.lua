@@ -25,7 +25,21 @@ M.set_defaults = function()
   vim.notify('Loaded neovide config for ' .. sys_name)
 end
 
+M.commands = {
+  { cmd = neovide.scale_up,   desc = 'neovide -> scale up' },
+  { cmd = neovide.scale_down, desc = 'neovide -> scale down' },
+  { cmd = M.set_defaults,     desc = 'neovide -> reset all settings' },
+  {
+    cmd = function()
+      neovide.set_scale(sys_defaults.scale or defaults.scale or 1)
+    end,
+    desc = 'neovide -> scale reset'
+  },
+}
+
 M.set_defaults()
+
+require 'commander'.add(M.commands, {})
 
 neovide.set_colorscheme_autocmd()
 
