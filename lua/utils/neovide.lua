@@ -2,13 +2,13 @@ local M = {}
 
 local sys_name = vim.loop.os_uname().sysname
 
-M.set_font = function(font_str) vim.o.guifont = font_str end -- TODO: write font selector from available fonts
+M.set_font = function(font_str) vim.o.guifont = font_str end
 
 M.set_scale = function(scale) vim.g.neovide_scale_factor = scale end
 
-M.scale_up = function() M.set_scale(vim.g.neovide_scale_factor + 0.1) end   -- TODO: set keybinding
+M.scale_up = function() M.set_scale(vim.g.neovide_scale_factor + 0.1) end
 
-M.scale_down = function() M.set_scale(vim.g.neovide_scale_factor - 0.1) end -- TODO: set keybinding
+M.scale_down = function() M.set_scale(vim.g.neovide_scale_factor - 0.1) end
 
 M.set_cursor = function(cursor) vim.g.neovide_cursor_vfx_mode = cursor end
 
