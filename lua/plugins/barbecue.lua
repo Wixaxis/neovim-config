@@ -8,4 +8,13 @@ return {
   },
   opts = {},
   event = 'BufEnter *.*',
+  commander = {
+    {
+      cmd = function()
+        require 'barbecue.ui'.toggle()
+        vim.notify('barbecue.nvim toggled')
+      end,
+      desc = 'barbecue - toggle (winbar)'
+    },
+  },
 }
