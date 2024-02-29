@@ -13,23 +13,12 @@ M.scale_down = function() M.set_scale(vim.g.neovide_scale_factor - 0.1) end
 M.set_cursor = function(cursor) vim.g.neovide_cursor_vfx_mode = cursor end
 
 M.set_transparency = function(opacity)
-	if sys_name == 'Darwin' then
-		vim.g.neovide_transparency = 0.5
-		vim.g.transparency = opacity
-		local bg_color = string.sub(vim.api.nvim_cmd(
-			{ cmd = 'hi', args = { 'normal' } },
-			{ output = true }), -7, -1)
-		vim.g.neovide_background_color = bg_color .. string.format("%x", math.floor(255 * opacity))
-	elseif sys_name == 'Linux' then
-		vim.g.neovide_transparency = opacity
-		vim.g.transparency = 0.5
-	end
+	vim.g.neovide_transparency = opacity
+	vim.g.transparency = 0.5
 end
 
 M.get_transparency = function()
-	if sys_name == 'Darwin' then return vim.g.transparency; end
-	if sys_name == 'Linux' then return vim.g.neovide_transparency; end
-	return 1
+	return vim.g.neovide_transparency
 end
 
 M.set_macos_alt_is_meta = function(mode)
@@ -64,6 +53,7 @@ M.set_colorscheme_autocmd = function()
 end
 
 M.set_float_win_blur = function(blur_amount)
+	vim.g.neovide_window_blurred = blur_amount ~= 0.0
 	vim.g.neovide_floating_blur_amount_x = blur_amount
 	vim.g.neovide_floating_blur_amount_y = blur_amount
 end
