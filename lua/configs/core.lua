@@ -21,6 +21,10 @@ vim.keymap.set('n', '<Esc>', ':noh\n', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- Don't yank text when pasting over selected text in visual mode
+vim.api.nvim_set_keymap('x', 'p', '"_dP', { noremap = true })
+vim.api.nvim_set_keymap('x', 'P', '"_dP', { noremap = true })
+
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.highlight.on_yank()
