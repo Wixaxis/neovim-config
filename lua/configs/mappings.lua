@@ -16,7 +16,7 @@ local M = {
     { keys = { 'n', '<C-l>', { desc = 'Window right' } },                      cmd = '<C-w>l',                                       desc = 'go to window right' },
     { keys = { 'n', '<C-j>', { desc = 'Window down' } },                       cmd = '<C-w>j',                                       desc = 'go to window below (down)' },
     { keys = { 'n', '<C-k>', { desc = 'Window up' } },                         cmd = '<C-w>k',                                       desc = 'go to window above (up)' },
-    { cmd = ':Lazy\n',                                                      desc = 'open Lazy.nvim package manager' },
+    { keys = { 'n', '<leader>ll', { desc = '[L]azy.nvim package manager' } },  cmd = ':Lazy\n',                                      desc = 'open Lazy.nvim package manager' },
     { cmd = ':Lazy sync\n',                                                    desc = 'open Lazy.nvim and sync (update) all plugins' }
   },
 
