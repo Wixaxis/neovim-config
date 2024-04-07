@@ -5,6 +5,7 @@ require 'utils'.set_default_colorscheme()
 require 'configs.mappings'
 if vim.g.neovide then require 'configs.neovide' end
 pcall(require 'telescope'.load_extension, 'fzf')
+pcall(require 'telescope'.load_extension, 'ui-select')
 require('telescope').load_extension('noice')
 require 'configs.nvim-treesitter'
 require 'configs.mason-lspconfig'
