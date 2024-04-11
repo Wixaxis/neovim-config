@@ -1,4 +1,6 @@
-local on_attach = function(_, bufnr)
+local M = {}
+
+M.on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
@@ -19,7 +21,7 @@ require 'lspconfig'.coffeesense.setup {
   cmd = { 'npx', 'coffeesense-language-server' ,'--stdio' },
 }
 
-local servers = {
+M.servers = {
   html = { filetypes = { 'html', 'slim' } },
   lua_ls = {
     Lua = {
@@ -29,31 +31,34 @@ local servers = {
   },
 }
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities = require('cmp_nvim_lsp').default_capabilities(M.capabilities)
 
-local mason_lspconfig = require 'mason-lspconfig'
+M.mason_lspconfig = require 'mason-lspconfig'
 
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
+M.mason_lspconfig.setup {
+  ensure_installed = vim.tbl_keys(M.servers),
 }
 
 
 
-mason_lspconfig.setup_handlers {
+M.mason_lspconfig.setup_handlers {
   function(server_name)
-    if servers[server_name] == nil then
+    if server_name == 'jdtls' then return ;end
+    if M.servers[server_name] == nil then
       require 'lspconfig'[server_name].setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
+        capabilities = M.capabilities,
+        on_attach = M.on_attach,
       }
     else
       require('lspconfig')[server_name].setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = servers[server_name],
-        filetypes = (servers[server_name] or {}).filetypes,
+        capabilities = M.capabilities,
+        on_attach = M.on_attach,
+        settings = M.servers[server_name],
+        filetypes = (M.servers[server_name] or {}).filetypes,
       }
     end
   end
 }
+
+return M
