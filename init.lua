@@ -1,6 +1,8 @@
 require 'configs.core'
 require 'utils'.ensure_lazy_installed()
-require 'lazy'.setup({ { import = 'plugins' } }, {})
+require 'lazy'.setup({ { import = 'plugins' } }, {
+	checker = { enabled = true }
+})
 require 'utils'.set_default_colorscheme()
 require 'configs.mappings'
 if vim.g.neovide then require 'configs.neovide' end
