@@ -1,6 +1,9 @@
 return {
   'numToStr/Comment.nvim',
-  opts = { mappings = false },
+  config = function()
+    require 'Comment'.setup { mappings = false }
+    require 'Comment.ft'.set('hyprlang', '#%s')
+  end,
   lazy = true,
   commander = {
     {
