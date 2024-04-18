@@ -1,3 +1,7 @@
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" }
+})
+
 require('nvim-treesitter.configs').setup {
   ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
   auto_install = false,
