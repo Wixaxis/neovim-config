@@ -1,9 +1,6 @@
-CURR_HOUR = tonumber(os.date("%H"))
-IS_BRIGHT = (CURR_HOUR < 19) and (CURR_HOUR > 7)
-LIGHT_THEME = 'onenord-light'
-DARK_THEME = 'onenord'
 return {
-	theme = IS_BRIGHT and LIGHT_THEME or DARK_THEME,
+	dark_theme = 'onenord',
+	light_theme = 'onenord-light',
 	neovide = {
 		-- every setting can be put both on system specific and general levels
 		-- system specific settings take precedence over general

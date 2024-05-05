@@ -27,8 +27,9 @@ M.str_split = function(inputstr, sep)
 	return t
 end
 
-M.set_default_colorscheme = function()
-	local default_theme = require 'defaults'.theme
+M.set_default_colorscheme = function(theme_mode)
+	theme_mode = theme_mode or 'dark'
+	local default_theme = theme_mode == 'dark' and require 'defaults'.dark_theme or require 'defaults'.light_theme
 	local current_theme = vim.cmd.colorscheme()
 	if current_theme == default_theme then
 		vim.notify('Theme [' .. current_theme .. '] already set, omitting...')
