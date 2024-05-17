@@ -19,7 +19,7 @@ return {
 			font_size = '14',
 			scale = 0.9,
 			transparency = 0.9,
-			alt_is_meta = 'auto' -- only mac specific
+			option_key_is_meta = 'auto' -- only mac specific
 		},
 		windows = {},
 	},

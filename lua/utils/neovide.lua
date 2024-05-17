@@ -21,25 +21,25 @@ M.get_transparency = function()
 	return vim.g.neovide_transparency
 end
 
-M.set_macos_alt_is_meta = function(mode)
+M.set_macos_option_key_is_meta = function(mode)
 	if sys_name ~= 'Darwin' or mode == nil then return; end
 
 	if mode == 'auto' then
 		vim.api.nvim_create_autocmd('InsertEnter', {
 			callback = function()
-				vim.g.neovide_input_macos_alt_is_meta = false
+				vim.g.neovide_input_macos_option_key_is_meta = false
 			end,
 			pattern = '*',
 		})
 		vim.api.nvim_create_autocmd('InsertLeave', {
 			callback = function()
-				vim.g.neovide_input_macos_alt_is_meta = true
+				vim.g.neovide_input_macos_option_key_is_meta = true
 			end,
 			pattern = '*',
 		})
-		vim.g.neovide_input_macos_alt_is_meta = true
+		vim.g.neovide_input_macos_option_key_is_meta = true
 	else
-		vim.g.neovide_input_macos_alt_is_meta = mode
+		vim.g.neovide_input_macos_option_key_is_meta = mode
 	end
 end
 

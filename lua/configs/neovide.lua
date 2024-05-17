@@ -20,7 +20,7 @@ M.set_defaults = function()
   neovide.set_font(def_font .. ':h' .. def_font_size)
   neovide.set_scale(sys_defaults.scale or defaults.scale or 1)
   neovide.set_transparency(sys_defaults.transparency or defaults.transparency or 1)
-  neovide.set_macos_alt_is_meta(sys_defaults.alt_is_meta)
+  neovide.set_macos_option_key_is_meta(sys_defaults.option_key_is_meta)
   neovide.set_float_win_blur(sys_defaults.float_win_blur or defaults.float_win_blur or 2.0)
   vim.notify('Loaded neovide config for ' .. sys_name)
 end
