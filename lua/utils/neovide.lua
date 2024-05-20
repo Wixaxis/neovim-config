@@ -27,17 +27,17 @@ M.set_macos_option_key_is_meta = function(mode)
 	if mode == 'auto' then
 		vim.api.nvim_create_autocmd('InsertEnter', {
 			callback = function()
-				vim.g.neovide_input_macos_option_key_is_meta = false
+				vim.g.neovide_input_macos_option_key_is_meta = 'none'
 			end,
 			pattern = '*',
 		})
 		vim.api.nvim_create_autocmd('InsertLeave', {
 			callback = function()
-				vim.g.neovide_input_macos_option_key_is_meta = true
+				vim.g.neovide_input_macos_option_key_is_meta = 'both'
 			end,
 			pattern = '*',
 		})
-		vim.g.neovide_input_macos_option_key_is_meta = true
+		vim.g.neovide_input_macos_option_key_is_meta = 'both'
 	else
 		vim.g.neovide_input_macos_option_key_is_meta = mode
 	end

@@ -19,7 +19,8 @@ return {
 			font_size = '14',
 			scale = 0.9,
 			transparency = 0.9,
-			option_key_is_meta = 'auto' -- only mac specific
+			-- possible values: none | only_left | only_right | auto
+			option_key_is_meta = 'only_left' -- only mac specific
 		},
 		windows = {},
 	},
