@@ -1,7 +1,7 @@
 local set_colorscheme = require 'utils.init'.set_default_colorscheme
 return {
     "f-person/auto-dark-mode.nvim",
-    config = {
+    opts = {
         update_interval = 1000,
         set_dark_mode = function()
             set_colorscheme 'dark'
