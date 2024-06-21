@@ -14,7 +14,7 @@ return {
     {
       keys = { 'n', '<leader>ss', { desc = '[S]essions - [s]ave current' } },
       cmd = function()
-        local curr_session_name = require 'possession.session'.session_name
+        local curr_session_name = require 'possession.session'.get_session_name()
         if curr_session_name then
           require 'possession'.save(curr_session_name);
         else
@@ -28,7 +28,7 @@ return {
     {
       keys = { 'n', '<leader>sp', { desc = '[S]essions - [p]rint current session name' } },
       cmd = function()
-        local curr_session_name = require 'possession.session'.session_name
+        local curr_session_name = require 'possession.session'.get_session_name()
         if curr_session_name then
           vim.notify('Current session: ' .. curr_session_name)
         else

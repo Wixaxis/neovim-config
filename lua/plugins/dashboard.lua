@@ -20,7 +20,7 @@ return {
         local path = vim.fn.stdpath("data") .. "/possession"
         local files = vim.split(vim.fn.glob(path .. "/*.json"), "\n")
         for i, file in pairs(files) do
-          local basename = vim.fs.basename(file):gsub("%.json", "")
+          local basename = vim.fs.basename(file):gsub("%.json", ""):gsub("%%20", " ")
           local button = dashboard.button(tostring(i), basename, ":PossessionLoad " .. basename .. "\n")
           table.insert(group.val, button)
         end
