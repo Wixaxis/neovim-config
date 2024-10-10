@@ -18,6 +18,9 @@ vim.o.termguicolors = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = false
+vim.o.foldlevelstart = 99
+vim.o.foldlevel = 99
+vim.wo.foldlevel = 99
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', '<Esc>', ':noh\n', { silent = true })
