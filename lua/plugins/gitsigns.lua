@@ -23,8 +23,11 @@ return {
   commander = {
     {
       cmd = function()
-        -- TODO: Doesnt work, toggle current line blame needs a bufnr to be passed :(
+        if vim.api.nvim_buf_is_valid(vim.g.last_current_bufnr) then
+          vim.api.nvim_set_current_buf(vim.g.last_current_bufnr)
+        end
         package.loaded.gitsigns.toggle_current_line_blame()
+        vim.g.last_current_bufnr = nil
       end,
       desc = 'gitsigns - current line blame toggle'
     },

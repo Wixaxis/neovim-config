@@ -16,7 +16,10 @@ M.wksp_list_folders = function() print(vim.inspect(vim.lsp.buf.list_workspace_fo
 
 M.format_current_buffer = function() vim.lsp.buf.format { async = true } end
 
-M.commander = function() require 'commander'.show({}) end
+M.commander = function()
+	vim.g.last_current_bufnr = vim.api.nvim_get_current_buf()
+	require 'commander'.show({})
+end
 
 M.str_split = function(inputstr, sep)
 	if sep == nil then sep = "%s"; end
