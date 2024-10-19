@@ -3,7 +3,6 @@ return {
     event = 'BufReadPost',
     dependencies = { 'kevinhwang91/promise-async', 'nvim-treesitter/nvim-treesitter' },
     init = function()
-        vim.notify('nvim ufo init')
         vim.o.foldenable = true
         vim.o.foldcolumn = 'auto:9'
         vim.o.foldlevel = 99
@@ -43,17 +42,11 @@ return {
     },
     commander = { {
         keys = { 'n', 'zR', { desc = 'ufo -> Open all folds' } },
-        cmd = function()
-            vim.notify('commander open all folds')
-            require('ufo').openAllFolds()
-        end,
+        cmd = function() require('ufo').openAllFolds() end,
         desc = 'open all folds in buffer'
     }, {
         keys = { 'n', 'zM', { desc = 'ufo -> Close all folds' } },
-        cmd = function()
-            vim.notify('commander close all folds')
-            require('ufo').closeAllFolds()
-        end,
+        cmd = function() require('ufo').closeAllFolds() end,
         desc = 'ufo -> close all folds in buffer'
     }, {
         cmd = ':bufdo set foldcolumn=1\n',
