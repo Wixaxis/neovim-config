@@ -4,10 +4,30 @@ if not jdtls_ok then
 	return
 end
 
+local function find_jar_file_path(plugins_dir)
+	local handle = io.popen('ls ' .. plugins_dir .. ' | grep -E "org\\.eclipse\\.equinox\\.launcher_.*\\.jar"')
+	if not handle then return nil end
+
+	local result = handle:read("*a")
+	handle:close()
+
+	if result and result ~= "" then
+		return plugins_dir .. '/' .. result:gsub("\n", "")
+	else
+		return nil
+	end
+end
+
 local jdtls_dir = vim.fn.stdpath('data') .. '/mason/packages/jdtls'
 local config_dir = jdtls_dir .. '/config_linux'
 local plugins_dir = jdtls_dir .. '/plugins'
-local path_to_jar = plugins_dir .. '/org.eclipse.equinox.launcher_1.6.800.v20240304-1850.jar'
+
+-- local path_to_jar = plugins_dir .. '/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar'
+local path_to_jar = find_jar_file_path(plugins_dir)
+if not path_to_jar then
+	vim.notify('Java LSP - JDTLS - No org.eclipse.equinox.launcher jar found! Please install jdtls with Mason')
+	return
+end
 local lombok_path = jdtls_dir .. "/lombok.jar"
 
 local root_markers = { "pom.xml", ".git", "mvnw", "gradlew", "build.gradle" }
