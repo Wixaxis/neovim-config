@@ -20,7 +20,8 @@ return {
 			scale = 0.9,
 			transparency = 0.9,
 			-- possible values: none | only_left | only_right | auto
-			option_key_is_meta = 'only_left' -- only mac specific
+			option_key_is_meta = 'only_left', -- only mac specific
+			font = 'Hack Nerd Font',
 		},
 		windows = {},
 	},

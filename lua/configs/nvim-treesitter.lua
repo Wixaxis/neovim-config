@@ -2,9 +2,24 @@ vim.filetype.add({
   pattern = { [".*/hypr/.*%.conf"] = "hyprlang" }
 })
 
+-- vim.filetype.add({ extension = { slim = 'slim', ['html.slim'] = 'slim' } })
+--
+--
+-- local treesitter_parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+--
+-- treesitter_parser_config.slim = {
+--   install_info = {
+--     url = "~/tmp/tree-sitter-slim",
+--     files = { "src/parser.c", "src/scanner.c" },
+--   },
+--   filetype = 'slim',
+-- }
+-- vim.treesitter.language.register("slim", "slim")
+
 require('nvim-treesitter.configs').setup {
+  -- ensure_installed = { 'slim', 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
   ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
-  auto_install = false,
+  auto_install = true,
   highlight = { enable = true },
   indent = { enable = true },
   incremental_selection = {

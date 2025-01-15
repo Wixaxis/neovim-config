@@ -10,7 +10,8 @@ return {
     view = {
       width = {},
       float = {
-        enable = true,
+        -- enable = true,
+        enable = false,
         open_win_config = {
           height = 40,
         }

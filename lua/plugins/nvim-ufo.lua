@@ -13,7 +13,6 @@ return {
     end,
     opts = {
         fold_virt_text_handler = function(virtText, lnum, endLnum, width, truncate)
-            vim.notify('fold virt handler')
             local newVirtText = {}
             local suffix = (' 󰁂 %d '):format(endLnum - lnum)
             local sufWidth = vim.fn.strdisplaywidth(suffix)
