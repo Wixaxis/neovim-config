@@ -11,7 +11,7 @@ local M = {
     { keys = { 'n', '<leader>c<Tab>', { desc = 'Close tab', silent = true } }, cmd = ':tabclose\n',                                  desc = 'close current tab' },
     { keys = { 'n', '<leader>fm', { desc = '[F]or[m]at document' } },          cmd = utils.format_current_buffer,                    desc = 'format document' },
     { keys = { 'n', '<leader>gt', { desc = 'Telescope [g]it s[t]atus' } },     cmd = ':Telescope git_status\n',                      desc = 'open telescope -> git_status' },
-    { keys = { 'n', '<leader>x', { desc = 'Close buffer [x]' } },              cmd = ':bdelete\n',                                   desc = 'close current buffer' },
+    { keys = { 'n', '<leader>x', { desc = 'Close buffer [x]' } },              cmd = Snacks.bufdelete.delete,                        desc = 'close current buffer' },
     { keys = { 'n', '<C-h>', { desc = 'Window left' } },                       cmd = '<C-w>h',                                       desc = 'go to window left' },
     { keys = { 'n', '<C-l>', { desc = 'Window right' } },                      cmd = '<C-w>l',                                       desc = 'go to window right' },
     { keys = { 'n', '<C-j>', { desc = 'Window down' } },                       cmd = '<C-w>j',                                       desc = 'go to window below (down)' },
