@@ -4,5 +4,6 @@ return {
   lazy = false,
   opts = {
     dashboard = require 'configs.snacks.dashboard',
+    bigfile = { enabled = true },
   },
 }
