@@ -2,7 +2,7 @@ local keys = {
   { icon = "󰈞", key = "SPACE f f", desc = "[F]ind [f]iles", action = ":Telescope find_files" },
   { icon = "", key = "SPACE f o", desc = "[F]ind [o]ldfiles", action = ":Telescope oldfiles" },
   { icon = "", key = "SPACE f w", desc = "[F]ind [w]ord by grep", action = ":Telescope live_grep" },
-  { icon = "", key = "SPACE l g", desc = "[L]azy[G]it", action = ":LazyGit" },
+  { icon = "", key = "SPACE l g", desc = "[L]azy[G]it", action = ":lua Snacks.lazygit()" },
   { icon = "󰒲", key = "SPACE l l", desc = "Lazy.nvim package manager", action = ":Lazy" },
   { icon = "󰩈", key = "q", desc = "Quit neovim", action = ":qa", padding = 1 },
 }
