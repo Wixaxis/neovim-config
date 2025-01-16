@@ -6,5 +6,7 @@ return {
     dashboard = require 'configs.snacks.dashboard',
     bigfile = { enabled = true },
     indent = require 'configs.snacks.indent',
+    input = { enabled = true },
+    notifier = { enabled = true },
   },
 }
