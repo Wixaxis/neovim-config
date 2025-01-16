@@ -39,5 +39,11 @@ return {
       vim.cmd ':NvimTreeFindFile\n'
     end,
     desc = 'open file tree & focus on current file'
+  }, {
+    keys = { 'n', '<leader>rf', { desc = '[R]ename [f]ile' } },
+    cmd = function()
+      Snacks.rename.rename_file()
+    end,
+    desc = 'rename current file'
   } },
 }
