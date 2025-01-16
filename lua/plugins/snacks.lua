@@ -5,5 +5,6 @@ return {
   opts = {
     dashboard = require 'configs.snacks.dashboard',
     bigfile = { enabled = true },
+    indent = require 'configs.snacks.indent',
   },
 }
