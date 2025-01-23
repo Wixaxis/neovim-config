@@ -22,19 +22,6 @@ local M = {
     { cmd = ':Lazy sync\n',                                                       desc = 'open Lazy.nvim and sync (update) all plugins' }
   },
 
-  cmp_mappings = function(cmp, luasnip)
-    return cmp.mapping.preset.insert {
-      ['<C-n>'] = cmp.mapping.select_next_item(),
-      ['<C-p>'] = cmp.mapping.select_prev_item(),
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete {},
-      ['<CR>'] = utils.cmp.confirm_mapping(cmp),
-      ['<Tab>'] = utils.cmp.next_item(cmp, luasnip),
-      ['<S-Tab>'] = utils.cmp.prev_item(cmp, luasnip),
-    }
-  end,
-
   lsp_mappings = {
     { '<leader>rs',  vim.lsp.buf.rename,                     '[R]ename [s]ymbol' },
     { '<leader>ca',  vim.lsp.buf.code_action,                '[C]ode [a]ction' },
@@ -52,8 +39,6 @@ local M = {
     { '<leader>wl',  utils.wksp_list_folders,                '[W]orkspace folder [l]ist' },
   },
 }
-
--- TODO: add mappings and commands to control neovide
 
 require 'commander'.add(M.base_mappings, {})
 
