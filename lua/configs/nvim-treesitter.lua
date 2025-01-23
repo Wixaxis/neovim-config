@@ -1,26 +1,25 @@
 vim.filetype.add({
-  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" }
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+  extension = { slim = 'slim', ['html.slim'] = 'slim' }
 })
 
--- vim.filetype.add({ extension = { slim = 'slim', ['html.slim'] = 'slim' } })
---
---
--- local treesitter_parser_config = require("nvim-treesitter.parsers").get_parser_configs()
---
--- treesitter_parser_config.slim = {
---   install_info = {
---     url = "~/tmp/tree-sitter-slim",
---     files = { "src/parser.c", "src/scanner.c" },
---   },
---   filetype = 'slim',
--- }
--- vim.treesitter.language.register("slim", "slim")
-
+---@diagnostic disable-next-line: missing-fields
 require('nvim-treesitter.configs').setup {
-  -- ensure_installed = { 'slim', 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'slim', 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
+  sync_install = false,
   auto_install = true,
-  highlight = { enable = true },
+  ignore_install = {},
+  highlight = {
+    enable = true,
+    disable = function(_, buf)
+      local max_filesize = 100 * 1024 -- 100 KB
+      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+      if ok and stats and stats.size > max_filesize then
+        return true
+      end
+    end,
+    additional_vim_regex_highlighting = false,
+  },
   indent = { enable = true },
   incremental_selection = {
     enable = true,
