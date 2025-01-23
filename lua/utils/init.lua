@@ -1,7 +1,5 @@
 local M = {}
 
-M.cmp = require 'utils.cmp'
-
 M.neovide = require 'utils.neovide'
 
 M.ensure_lazy_installed = function()

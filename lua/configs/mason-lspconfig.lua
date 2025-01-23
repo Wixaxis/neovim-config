@@ -18,7 +18,6 @@ M.on_attach = function(_, bufnr)
   vim.api.nvim_set_option_value('foldlevel', 99, { scope = 'local' })
 end
 
-require 'lspconfig'.coffeesense.setup { cmd = { 'npx', 'coffeesense-language-server', '--stdio' } }
 
 M.servers = {
   html = { filetypes = { 'html', 'slim' } },
@@ -27,11 +26,11 @@ M.servers = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
     },
-  },
+  }
 }
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = require 'blink.cmp'.get_lsp_capabilities(M.capabilities)
+M.capabilities = require('blink.cmp').get_lsp_capabilities(M.capabilities, true)
 M.capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true
@@ -58,6 +57,12 @@ M.mason_lspconfig.setup_handlers {
       }
     end
   end
+}
+
+require 'lspconfig'.coffeesense.setup { cmd = { 'npx', 'coffeesense-language-server', '--stdio' } }
+require 'lspconfig'.solargraph.setup {
+  cmd = { 'rbenv', 'rehash', '&&', 'bundle', 'exec', 'solargraph', 'stdio' },
+  root_dir = '~/work/activenow',
 }
 
 return M
