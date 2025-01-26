@@ -3,7 +3,7 @@ return {
     opts = {
         cursorline = {
             enable = true,
-            timeout = 1000,
+            timeout = 600,
             number = false,
         },
         cursorword = {
