@@ -37,7 +37,7 @@ return {
 
             sources = {
                 -- default = { 'lazydev', 'avante_commands', 'avante_files', 'avante_mentions', 'path', 'snippets', 'buffer' },
-                default = { 'lazydev', 'path', 'snippets', 'buffer' },
+                default = { 'lsp', 'lazydev', 'path', 'snippets', 'buffer' },
                 providers = {
                     lazydev = {
                         name = 'LazyDev',
