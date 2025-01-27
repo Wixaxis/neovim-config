@@ -17,6 +17,11 @@ M.base_mappings = {
   { keys = { 'n', '<leader><S-Tab>' }, cmd = ':tabprev\n',                desc = 'go to prev tab' },
   { keys = { 'n', '<leader>n<Tab>' },  cmd = ':tabnew\n',                 desc = 'open new tab' },
   { keys = { 'n', '<leader>c<Tab>' },  cmd = ':tabclose\n',               desc = 'close current tab' },
+  -- quickfix
+  { keys = { 'n', '<leader>qn>' },     cmd = ':cnext\n',                  desc = 'quickfix - next result' },
+  { keys = { 'n', '<leader>qp>' },     cmd = ':cprev\n',                  desc = 'quickfix - previous result' },
+  { keys = { 'n', '<leader>qo>' },     cmd = ':copen\n',                  desc = 'quickfix - open' },
+  { keys = { 'n', '<leader>qc>' },     cmd = ':cclose\n',                 desc = 'quickfix - close' },
   -- git
   { keys = { 'n', '<leader>gt' },      cmd = ':Telescope git_status\n',   desc = 'open telescope -> git_status' },
   { keys = { 'n', '<leader>lg' },      cmd = utils.base.open_lazygit,     desc = 'open lazygit' },
