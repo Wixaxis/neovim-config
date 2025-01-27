@@ -40,87 +40,94 @@ M.lsp_mappings = {
   { '<C-g>',      utils.lsp.function_signature,    'Signature' },
   { '<leader>fm', utils.lsp.format,                'Format' }
 }
-M.auto_dark_mode =  {
-    { keys = {}, cmd = utils.auto_dark_mode.disable, desc = 'disable automatic dark mode' },
-  }
-M.autopairs =  {
-    { cmd = utils.autopairs.disable, desc = 'autopairs - disable' },
-    { cmd = utils.autopairs.enable,  desc = 'autopairs - enable' },
-  }
-M.barbecue =  {
-    { keys = {}, cmd = utils.barbecue.toggle, desc = 'barbecue - toggle (winbar)' },
-  }
-M.commander =  {
-    { keys = { { 'n', 'v' }, '<leader><leader>' }, cmd = utils.commander.show, desc = 'open commander' },
-  }
-M.comment =  {
-    { keys = { 'n', '<leader>/' }, cmd = utils.comment.one_line,   desc = 'comment / uncomment current line' },
-    { keys = { 'v', '<leader>/' }, cmd = utils.comment.many_lines, desc = 'comment / uncomment selected lines' },
-  }
+
+M.auto_dark_mode = {
+  { keys = {}, cmd = utils.auto_dark_mode.disable, desc = 'disable automatic dark mode' },
+}
+
+M.autopairs = {
+  { cmd = utils.autopairs.disable, desc = 'autopairs - disable' },
+  { cmd = utils.autopairs.enable,  desc = 'autopairs - enable' },
+}
+
+M.barbecue = {
+  { keys = {}, cmd = utils.barbecue.toggle, desc = 'barbecue - toggle (winbar)' },
+}
+
+M.commander = {
+  { keys = { { 'n', 'v' }, '<leader><leader>' }, cmd = utils.commander.show, desc = 'open commander' },
+}
+
+M.comment = {
+  { keys = { 'n', '<leader>/' }, cmd = utils.comment.one_line,   desc = 'comment / uncomment current line' },
+  { keys = { 'v', '<leader>/' }, cmd = utils.comment.many_lines, desc = 'comment / uncomment selected lines' },
+}
+
 -- TODO: expand terminals support (create, search/select, remove, notify, send, move)
-M.fterm =  {
-    { keys = { { 'n', 't' }, '<A-t>' }, cmd = utils.fterm.toggle, desc = 'open / close floating terminal' },
-  }
-M.gitsigns =  {
-    { keys = {}, cmd = utils.gitsigns.toggle_line_blame, desc = 'gitsigns - current line blame toggle' },
-  }
+M.fterm = {
+  { keys = { { 'n', 't' }, '<A-t>' }, cmd = utils.fterm.toggle, desc = 'open / close floating terminal' },
+}
 
-M.neotest =  {
-    { keys = { 'n', '<leader>tec' }, cmd = utils.neotest.closest, desc = 'NeoTest - TEst Closest' },
-    { keys = { 'n', '<leader>tes' }, cmd = utils.neotest.summary, desc = 'NeoTest - open [te]sts [s]ummary panel' },
-    { keys = { 'n', '<leader>tea' }, cmd = utils.neotest.all,     desc = 'NeoTest - [Te]st [a]ll' },
-    { keys = { 'n', '<leader>tef' }, cmd = utils.neotest.file,    desc = 'NeoTest - [Te]st [f]ile' },
-  }
+M.gitsigns = {
+  { keys = {}, cmd = utils.gitsigns.toggle_line_blame, desc = 'gitsigns - current line blame toggle' },
+}
 
-M.nvim_tree =  {
-    { keys = { 'n', '<leader>e' },  cmd = utils.nvim_tree.open,        desc = 'open file tree & focus on current file' },
-    { keys = { 'n', '<leader>rf' }, cmd = utils.nvim_tree.rename_file, desc = 'rename current file' },
-  }
+M.neotest = {
+  { keys = { 'n', '<leader>tec' }, cmd = utils.neotest.closest, desc = 'NeoTest - TEst Closest' },
+  { keys = { 'n', '<leader>tes' }, cmd = utils.neotest.summary, desc = 'NeoTest - open [te]sts [s]ummary panel' },
+  { keys = { 'n', '<leader>tea' }, cmd = utils.neotest.all,     desc = 'NeoTest - [Te]st [a]ll' },
+  { keys = { 'n', '<leader>tef' }, cmd = utils.neotest.file,    desc = 'NeoTest - [Te]st [f]ile' },
+}
 
-M.nvim_ufo =  {
-    { keys = { 'n', 'zR' }, cmd = utils.nvim_ufo.open_all_folds,    desc = 'open all folds in buffer' },
-    { keys = { 'n', 'zM' }, cmd = utils.nvim_ufo.close_all_folds,   desc = 'ufo -> close all folds in buffer' },
-    { keys = {},            cmd = utils.nvim_ufo.foldcolumn_1,      desc = 'ufo -> show (narrow + ugly) foldcolumn' },
-    { keys = nil,           cmd = utils.nvim_ufo.foldcolumn_auto_9, desc = 'ufo -> show (wide + pretty) foldcolumn' },
-    { keys = {},            cmd = utils.nvim_ufo.foldcolumn_0,      desc = 'ufo -> hide foldcolumn' },
-  }
+M.nvim_tree = {
+  { keys = { 'n', '<leader>e' },  cmd = utils.nvim_tree.open,        desc = 'open file tree & focus on current file' },
+  { keys = { 'n', '<leader>rf' }, cmd = utils.nvim_tree.rename_file, desc = 'rename current file' },
+}
 
-M.possession =  {
-    { keys = { 'n', '<leader>sl' }, cmd = utils.possession.list_sessions, desc = 'open saved sessions & load picked' },
-    { keys = { 'n', '<leader>ss' }, cmd = utils.possession.save_session,  desc = 'save current session' },
-    { keys = { 'n', '<leader>sp' }, cmd = utils.possession.print_current, desc = 'print name of current session' },
-  }
+M.nvim_ufo = {
+  { keys = { 'n', 'zR' }, cmd = utils.nvim_ufo.open_all_folds,    desc = 'open all folds in buffer' },
+  { keys = { 'n', 'zM' }, cmd = utils.nvim_ufo.close_all_folds,   desc = 'ufo -> close all folds in buffer' },
+  { keys = {},            cmd = utils.nvim_ufo.foldcolumn_1,      desc = 'ufo -> show (narrow + ugly) foldcolumn' },
+  { keys = nil,           cmd = utils.nvim_ufo.foldcolumn_auto_9, desc = 'ufo -> show (wide + pretty) foldcolumn' },
+  { keys = {},            cmd = utils.nvim_ufo.foldcolumn_0,      desc = 'ufo -> hide foldcolumn' },
+}
 
-M.telescope =  {
-    { keys = { 'n', '<leader>fo' },  cmd = utils.telescope.oldfiles,      desc = 'telescope -> oldfiles | find previously opened files' },
-    { keys = { 'n', '<leader>fb' },  cmd = utils.telescope.buffers,       desc = 'telescope -> buffers | find opened buffer' },
-    { keys = { 'n', '<leader>fcf' }, cmd = utils.telescope.infile_search, desc = 'telescope -> infile_search | find words in current file' },
-    { keys = { 'n', '<leader>fg' },  cmd = utils.telescope.git_files,     desc = 'telescope -> git_files | find files tracked by git' },
-    { keys = { 'n', '<leader>ff' },  cmd = utils.telescope.find_files,    desc = 'telescope -> find_files | find file' },
-    { keys = { 'n', '<leader>fa' },  cmd = utils.telescope.find_all,      desc = 'telescope -> find_all | find all possible files' },
-    { keys = { 'n', '<leader>fh' },  cmd = utils.telescope.help_tags,     desc = 'telescope -> help_tags | find help in manual' },
-    { keys = { 'n', '<leader>ft' },  cmd = utils.telescope.telescope,     desc = 'telescope -> telescope | find telescope functions' },
-    { keys = { 'n', '<leader>fw' },  cmd = utils.telescope.live_grep,     desc = 'telescope -> live_grep | find word in project' },
-    { keys = { 'n', '<leader>fd' },  cmd = utils.telescope.diagnostics,   desc = 'telescope -> disgnostics | find problems in diagnostics' },
-    { keys = { 'n', '<leader>fcw' }, cmd = utils.telescope.grep_string,   desc = 'telescope -> grep_string | find current word in project' }
-  }
+M.possession = {
+  { keys = { 'n', '<leader>sl' }, cmd = utils.possession.list_sessions, desc = 'open saved sessions & load picked' },
+  { keys = { 'n', '<leader>ss' }, cmd = utils.possession.save_session,  desc = 'save current session' },
+  { keys = { 'n', '<leader>sp' }, cmd = utils.possession.print_current, desc = 'print name of current session' },
+}
 
-M.todo_comments =  {
-    { keys = { 'n', '<leader>td' }, cmd = utils.todo_comments.open_list, desc = 'open list of todos in project' },
-  }
+M.telescope = {
+  { keys = { 'n', '<leader>fo' },  cmd = utils.telescope.oldfiles,      desc = 'telescope -> oldfiles | find previously opened files' },
+  { keys = { 'n', '<leader>fb' },  cmd = utils.telescope.buffers,       desc = 'telescope -> buffers | find opened buffer' },
+  { keys = { 'n', '<leader>fcf' }, cmd = utils.telescope.infile_search, desc = 'telescope -> infile_search | find words in current file' },
+  { keys = { 'n', '<leader>fg' },  cmd = utils.telescope.git_files,     desc = 'telescope -> git_files | find files tracked by git' },
+  { keys = { 'n', '<leader>ff' },  cmd = utils.telescope.find_files,    desc = 'telescope -> find_files | find file' },
+  { keys = { 'n', '<leader>fa' },  cmd = utils.telescope.find_all,      desc = 'telescope -> find_all | find all possible files' },
+  { keys = { 'n', '<leader>fh' },  cmd = utils.telescope.help_tags,     desc = 'telescope -> help_tags | find help in manual' },
+  { keys = { 'n', '<leader>ft' },  cmd = utils.telescope.telescope,     desc = 'telescope -> telescope | find telescope functions' },
+  { keys = { 'n', '<leader>fw' },  cmd = utils.telescope.live_grep,     desc = 'telescope -> live_grep | find word in project' },
+  { keys = { 'n', '<leader>fd' },  cmd = utils.telescope.diagnostics,   desc = 'telescope -> disgnostics | find problems in diagnostics' },
+  { keys = { 'n', '<leader>fcw' }, cmd = utils.telescope.grep_string,   desc = 'telescope -> grep_string | find current word in project' }
+}
+
+M.todo_comments = {
+  { keys = { 'n', '<leader>td' }, cmd = utils.todo_comments.open_list, desc = 'open list of todos in project' },
+}
 
 -- TODO: these cammands are badly generated by AI - fix, make sensible and make work
-M.trouble =  {
-    { keys = { 'n', '<leader>trt' }, cmd = utils.trouble.toggle,      desc = 'trouble -> toggle' },
-    { keys = { 'n', '<leader>trd' }, cmd = utils.trouble.diagnostics, desc = 'trouble -> diagnostics' },
-  }
+M.trouble = {
+  { keys = { 'n', '<leader>trt' }, cmd = utils.trouble.toggle,      desc = 'trouble -> toggle' },
+  { keys = { 'n', '<leader>trd' }, cmd = utils.trouble.diagnostics, desc = 'trouble -> diagnostics' },
+}
 
-M.which_key =  {
-    { keys = { 'n', '<leader>?' }, cmd = utils.which_key.show_local, desc = 'which-key - show local bufer keymaps' }
-  }
+M.which_key = {
+  { keys = { 'n', '<leader>?' }, cmd = utils.which_key.show_local, desc = 'which-key - show local bufer keymaps' },
+}
 
-M.yanky =  {
-    { keys = { 'n', '<leader>p' }, cmd = utils.yanky.show_and_paste, desc = 'open yank history & paste here' },
-  }
+M.yanky = {
+  { keys = { 'n', '<leader>p' }, cmd = utils.yanky.show_and_paste, desc = 'open yank history & paste here' },
+}
 
 return M
