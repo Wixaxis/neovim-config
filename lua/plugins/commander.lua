@@ -8,9 +8,5 @@ return {
       lazy = { enable = true }
     }
   },
-  commander = { {
-    keys = { { 'n', 'v' }, '<leader><leader>', { desc = 'Commander' } },
-    cmd = require 'utils'.commander,
-    desc = 'open commander'
-  } },
+  commander = require 'configs.mappings'.commander,
 }

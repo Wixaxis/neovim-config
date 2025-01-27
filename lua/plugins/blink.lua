@@ -7,7 +7,6 @@ return {
             'rafamadriz/friendly-snippets',
             'folke/lazydev.nvim'
         },
-
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config
         opts = {
@@ -29,61 +28,27 @@ return {
                 ['<PageDown>'] = { 'scroll_documentation_down', 'fallback' },
                 ['<Esc>'] = { 'cancel', 'fallback' },
             },
-
             appearance = {
                 use_nvim_cmp_as_default = false,
                 nerd_font_variant = 'mono'
             },
-
             sources = {
-                -- default = { 'lazydev', 'avante_commands', 'avante_files', 'avante_mentions', 'path', 'snippets', 'buffer' },
                 default = { 'lsp', 'lazydev', 'path', 'snippets', 'buffer' },
                 providers = {
-                    lazydev = {
-                        name = 'LazyDev',
-                        module = 'lazydev.integrations.blink',
-                        -- score_offset = 100,
-                    },
-                    -- avante_commands = {
-                    --     name = "avante_commands",
-                    --     module = "blink.compat.source",
-                    --     score_offset = 90,
-                    --     opts = {},
-                    -- },
-                    -- avante_files = {
-                    --     name = "avante_files",
-                    --     module = "blink.compat.source",
-                    --     score_offset = 100,
-                    --     opts = {},
-                    -- },
-                    -- avante_mentions = {
-                    --     name = "avante_mentions",
-                    --     module = "blink.compat.source",
-                    --     score_offset = 1000,
-                    --     opts = {},
-                    -- },
+                    lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink' },
                 }
             },
-
             completion = {
-                list = {
-                    selection = {
-                        preselect = false
-                    }
-                },
-                documentation = {
-                    auto_show = true,
-                    auto_show_delay_ms = 400,
-                },
+                list = { selection = { preselect = false } },
+                documentation = { auto_show = true, auto_show_delay_ms = 400 },
                 ghost_text = { enabled = true },
                 menu = {
                     draw = {
                         columns = {
-                            { 'kind_icon' },
-                            { 'label', 'label_description','source_name', gap = 1 },
-                        },
+                            { 'kind_icon' }, { 'label', 'label_description', 'source_name', gap = 1 },
+                        }
                     }
-                }
+                },
             }
         },
         opts_extend = { "sources.default" }

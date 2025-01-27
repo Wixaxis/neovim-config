@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("User", {
     events.subscribe(events.Event.NodeRenamed, function(data)
       if prev.new_name ~= data.new_name or prev.old_name ~= data.old_name then
         data = data
-        Snacks.rename.on_rename_file(data.old_name, data.new_name)
+        require('snacks').rename.on_rename_file(data.old_name, data.new_name)
       end
     end)
   end,
@@ -32,16 +32,5 @@ return {
       }
     },
   },
-  commander = { {
-    keys = { 'n', '<leader>e', { desc = 'Fil[e] tree' } },
-    cmd = function()
-      require 'nvim-tree'
-      vim.cmd ':NvimTreeFindFile\n'
-    end,
-    desc = 'open file tree & focus on current file'
-  }, {
-    keys = { 'n', '<leader>rf', { desc = '[R]ename [f]ile' } },
-    cmd = function() Snacks.rename.rename_file() end,
-    desc = 'rename current file'
-  } },
+  commander = require 'configs.mappings'.nvim_tree,
 }

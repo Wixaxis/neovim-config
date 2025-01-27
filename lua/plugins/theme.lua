@@ -1,12 +1,4 @@
--- require 'utils'.set_default_colorscheme()
 vim.g.neon_style = "dark" -- default | doom | dark | light
-
-require 'commander'.add({ {
-  keys = { 'n', '<leader>th', { desc = 'Change [t][h]eme' } },
-  cmd = ':Telescope colorscheme\n',
-  desc = 'change theme | pick colorscheme | telescope -> colorscheme'
-} }, {})
-
 return {
   'navarasu/onedark.nvim',
   'rmehri01/onenord.nvim',

@@ -39,22 +39,5 @@ return {
             return newVirtText
         end
     },
-    commander = { {
-        keys = { 'n', 'zR', { desc = 'ufo -> Open all folds' } },
-        cmd = function() require('ufo').openAllFolds() end,
-        desc = 'open all folds in buffer'
-    }, {
-        keys = { 'n', 'zM', { desc = 'ufo -> Close all folds' } },
-        cmd = function() require('ufo').closeAllFolds() end,
-        desc = 'ufo -> close all folds in buffer'
-    }, {
-        cmd = ':bufdo set foldcolumn=1\n',
-        desc = 'ufo -> show (narrow + ugly) foldcolumn'
-    }, {
-        cmd = ':bufdo set foldcolumn=auto:9\n',
-        desc = 'ufo -> show (wide + pretty) foldcolumn'
-    }, {
-        cmd = ':bufdo set foldcolumn=0\n',
-        desc = 'ufo -> hide foldcolumn'
-    } }
+    commander = require 'configs.mappings'.nvim_ufo,
 }

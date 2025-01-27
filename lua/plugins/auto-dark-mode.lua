@@ -6,8 +6,5 @@ return {
         set_dark_mode = function() set_colorscheme 'dark' end,
         set_light_mode = function() set_colorscheme 'light' end,
     },
-    commander = { {
-        cmd = function() require 'auto-dark-mode'.disable() end,
-        desc = 'disable automatic dark mode'
-    } },
+    commander = require 'configs.mappings'.auto_dark_mode,
 }
