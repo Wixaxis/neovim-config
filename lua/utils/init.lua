@@ -27,15 +27,24 @@ end
 M.sys_name = vim.loop.os_uname().sysname
 
 M.base = {
-	delete_buffer = function() require('snacks').bufdelete.delete() end,
-	open_lazygit = function() require('snacks').lazygit.open() end,
+	delete_buffer    = function() require('snacks').bufdelete.delete() end,
+	open_lazygit     = function() require('snacks').lazygit.open() end,
 	git_file_history = function() require('snacks').lazygit.log_file() end,
+	toggle_relative  = function() vim.wo.relativenumber = not vim.wo.relativenumber end
 }
 
 M.bufferline = {
 	rename_tab = function()
-		vim.ui.input({ prompt = 'Rename current tab: ' }, function(input)
+		vim.ui.input({ prompt = 'Rename current tab:' }, function(input)
 			vim.cmd(':BufferLineTabRename ' .. input .. '\n')
+		end)
+	end,
+	new_named_tab = function()
+		vim.cmd(':tabnew\n')
+		vim.ui.input({ prompt = 'Name for new tab:' }, function(input)
+			if input then
+				vim.cmd(':BufferLineTabRename ' .. input .. '\n')
+			end
 		end)
 	end
 }
