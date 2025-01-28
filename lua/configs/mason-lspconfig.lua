@@ -38,7 +38,7 @@ M.capabilities.textDocument.foldingRange = {
 
 M.mason_lspconfig = require 'mason-lspconfig'
 
-M.mason_lspconfig.setup { ensure_installed = vim.tbl_keys(M.servers) }
+M.mason_lspconfig.setup { ensure_installed = vim.tbl_keys(M.servers), automatic_installation = true }
 
 M.mason_lspconfig.setup_handlers {
   function(server_name)
@@ -49,7 +49,7 @@ M.mason_lspconfig.setup_handlers {
         on_attach = M.on_attach,
       }
     else
-      require('lspconfig')[server_name].setup {
+      require 'lspconfig'[server_name].setup {
         capabilities = M.capabilities,
         on_attach = M.on_attach,
         settings = M.servers[server_name],
@@ -60,9 +60,9 @@ M.mason_lspconfig.setup_handlers {
 }
 
 require 'lspconfig'.coffeesense.setup { cmd = { 'npx', 'coffeesense-language-server', '--stdio' } }
-require 'lspconfig'.solargraph.setup {
-  cmd = { 'rbenv', 'rehash', '&&', 'bundle', 'exec', 'solargraph', 'stdio' },
-  root_dir = '~/work/activenow',
-}
+-- require 'lspconfig'.solargraph.setup {
+--   cmd = { 'rbenv', 'rehash', '&&', 'bundle', 'exec', 'solargraph', 'stdio' },
+--   root_dir = '~/work/activenow',
+-- }
 
 return M
