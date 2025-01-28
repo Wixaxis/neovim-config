@@ -33,9 +33,10 @@ return {
                 nerd_font_variant = 'mono'
             },
             sources = {
-                default = { 'lsp', 'lazydev', 'path', 'snippets', 'buffer' },
+                default = { 'lsp', 'lazydev', 'path', 'snippets', 'cmdline', 'buffer' },
                 providers = {
                     lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink' },
+                    markdown = { name = 'RenderMarkdown', module = 'render-markdown.integ.blink', fallbacks = { 'lsp' } },
                 }
             },
             completion = {
