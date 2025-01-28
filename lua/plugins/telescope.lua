@@ -13,7 +13,7 @@ return {
   opts = {
     defaults = {
       wrap_results = true,
-      borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+      -- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
       mappings = { i = { ['<C-u>'] = false, ['<C-d>'] = false } },
     },
     extensions = { ['ui-select'] = { require('telescope.themes').get_dropdown() } },
