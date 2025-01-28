@@ -1,7 +1,6 @@
 local M = {}
 M.neovide = require 'utils.neovide'
 M.lsp = require 'utils.lsp'
--- M.lazy = require 'utils.lazy_installer'
 M.telescope = require 'utils.telescope'
 
 M.str_split = function(inputstr, sep)
@@ -31,6 +30,14 @@ M.base = {
 	delete_buffer = function() require('snacks').bufdelete.delete() end,
 	open_lazygit = function() require('snacks').lazygit.open() end,
 	git_file_history = function() require('snacks').lazygit.log_file() end,
+}
+
+M.bufferline = {
+	rename_tab = function()
+		vim.ui.input({ prompt = 'Rename current tab: ' }, function(input)
+			vim.cmd(':BufferLineTabRename ' .. input .. '\n')
+		end)
+	end
 }
 
 M.auto_dark_mode = { disable = function() require 'auto-dark-mode'.disable() end }
