@@ -24,6 +24,7 @@ vim.o.foldlevel = 99
 vim.wo.foldlevel = 99
 vim.opt.laststatus = 3
 vim.opt.scrolloff = 8
+vim.opt.swapfile = false
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', '<Esc>', ':noh\n', { silent = true })
