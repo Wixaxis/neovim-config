@@ -7,4 +7,12 @@ return {
         enabled = true,
     },
     ft = { 'markdown' },
+    init = function()
+        -- Associate .mdc files with markdown filetype
+        vim.filetype.add({
+            extension = {
+                mdc = 'markdown',
+            },
+        })
+    end,
 }
