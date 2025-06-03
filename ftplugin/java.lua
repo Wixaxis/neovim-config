@@ -115,6 +115,4 @@ local config = {
 	},
 }
 
-config['on_attach'] = require 'configs.mason-lspconfig'.on_attach
-
 require('jdtls').start_or_attach(config)
