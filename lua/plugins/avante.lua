@@ -5,7 +5,7 @@ return {
     version = false,
     opts = {
         provider = 'openrouter-claude-sonnet-4',
-        vendors = {
+        providers = {
             -- OpenAI GPT Models
             ["openrouter-gpt-4.1"] = {
                 __inherited_from = "openai",
