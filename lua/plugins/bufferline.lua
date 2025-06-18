@@ -24,5 +24,5 @@ return {
     })
   end,
   event = 'BufEnter *.*',
-  commander = require 'configs.mappings'.bufferline,
+  keys = require 'configs.mappings'.bufferline,
 }

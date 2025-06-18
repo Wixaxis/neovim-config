@@ -59,8 +59,8 @@ M.harpoon = function(harpoon)
 end
 
 M.bufferline = {
-  { keys = { 'n', '<leader>bp' },  cmd = ':BufferLineTogglePin\n',    desc = 'bufferline - pin current buffer' },
-  { keys = { 'n', '<leader>btr' }, cmd = utils.bufferline.rename_tab, desc = 'bufferline - rename current tab' },
+  { '<leader>bp',  ':BufferLineTogglePin\n',    desc = 'bufferline - pin current buffer' },
+  { '<leader>btr', utils.bufferline.rename_tab, desc = 'bufferline - rename current tab' },
 }
 
 M.lsp_mappings = {
