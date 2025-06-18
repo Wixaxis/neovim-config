@@ -2,43 +2,28 @@ local utils = require 'utils.init'
 local M = {}
 
 M.base_mappings = {
-  -- NAVIGATION
   -- windows
-  { keys = { 'n', '<C-h>' },                      cmd = '<C-w>h',                       desc = 'go to window left' },
-  { keys = { 'n', '<C-l>' },                      cmd = '<C-w>l',                       desc = 'go to window right' },
-  { keys = { 'n', '<C-j>' },                      cmd = '<C-w>j',                       desc = 'go to window below (down)' },
-  { keys = { 'n', '<C-k>' },                      cmd = '<C-w>k',                       desc = 'go to window above (up)' },
+  { '<C-h>',       '<C-w>h',                   desc = 'go to window left' },
+  { '<C-l>',       '<C-w>l',                   desc = 'go to window right' },
+  { '<C-j>',       '<C-w>j',                   desc = 'go to window below (down)' },
+  { '<C-k>',       '<C-w>k',                   desc = 'go to window above (up)' },
   -- base
-  { keys = { 'i', '<C-h>' },                      cmd = '<Left>',                       desc = 'go left' },
-  { keys = { 'i', '<C-j>' },                      cmd = '<Down>',                       desc = 'go down' },
-  { keys = { 'i', '<C-k>' },                      cmd = '<Up>',                         desc = 'go up' },
-  { keys = { 'i', '<C-l>' },                      cmd = '<Right>',                      desc = 'go right' },
-  -- buffers
-  { keys = { 'n', '<Tab>', { silent = true } },   cmd = ':BufferLineCycleNext\n',       desc = 'go to next buffer' },
-  { keys = { 'n', '<S-Tab>', { silent = true } }, cmd = ':BufferLineCyclePrev\n',       desc = 'go to prev buffer' },
-  { keys = { 'n', '<leader>x' },                  cmd = utils.base.delete_buffer,       desc = 'close current buffer' },
-  -- tabs
-  { keys = { 'n', '<leader><Tab>' },              cmd = ':tabnext\n',                   desc = 'go to next tab' },
-  { keys = { 'n', '<leader><S-Tab>' },            cmd = ':tabprev\n',                   desc = 'go to prev tab' },
-  { keys = { 'n', '<leader>n<Tab>' },             cmd = utils.bufferline.new_named_tab, desc = 'open new tab' },
-  { keys = { 'n', '<leader>c<Tab>' },             cmd = ':tabclose\n',                  desc = 'close current tab' },
+  { '<C-h>',       '<Left>',                   desc = 'go left',                       mode = 'i' },
+  { '<C-j>',       '<Down>',                   desc = 'go down',                       mode = 'i' },
+  { '<C-k>',       '<Up>',                     desc = 'go up',                         mode = 'i' },
+  { '<C-l>',       '<Right>',                  desc = 'go right',                      mode = 'i' },
   -- quickfix
-  { keys = { 'n', '<leader>qn' },                 cmd = ':cnext\n',                     desc = 'quickfix - next result' },
-  { keys = { 'n', '<leader>qp' },                 cmd = ':cprev\n',                     desc = 'quickfix - previous result' },
-  { keys = { 'n', '<leader>qo' },                 cmd = ':copen\n',                     desc = 'quickfix - open' },
-  { keys = { 'n', '<leader>qc' },                 cmd = ':cclose\n',                    desc = 'quickfix - close' },
-  -- git
-  { keys = { 'n', '<leader>gt' },                 cmd = ':Telescope git_status\n',      desc = 'open telescope -> git_status' },
-  { keys = { 'n', '<leader>lg' },                 cmd = utils.base.open_lazygit,        desc = 'open lazygit' },
-  { keys = { 'n', '<leader>lh' },                 cmd = utils.base.git_file_history,    desc = 'open lazygit - current file history' },
+  { '<leader>qn',  ':cnext\n',                 desc = 'quickfix - next result' },
+  { '<leader>qp',  ':cprev\n',                 desc = 'quickfix - previous result' },
+  { '<leader>qo',  ':copen\n',                 desc = 'quickfix - open' },
+  { '<leader>qc',  ':cclose\n',                desc = 'quickfix - close' },
   -- other
-  { keys = { 'n', '<leader>ll' },                 cmd = ':Lazy\n',                      desc = 'open Lazy.nvim package manager' },
-  { keys = { 'n', '<leader>th' },                 cmd = ':Telescope colorscheme\n',     desc = 'change theme | pick colorscheme | telescope -> colorscheme' },
-  { keys = {},                                    cmd = utils.base.toggle_relative,     desc = 'toggle relative line numbering' },
+  { '<leader>ll',  ':Lazy\n',                  desc = 'open Lazy.nvim package manager' },
+  { '<leader>rnt', utils.base.toggle_relative, desc = 'toggle relative line numbering' },
 }
 
-M.assign_base_mappings = function() require 'commander'.add(M.base_mappings, {}) end
-
+M.assign_base_mappings = function()
+  utils.set_keymaps(M.base_mappings)
 end
 
 M.snacks = {

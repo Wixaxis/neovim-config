@@ -24,6 +24,39 @@ M.set_default_colorscheme = function(theme_mode)
 	vim.cmd.colorscheme(default_theme)
 end
 
+M.set_keymaps = function(keymaps, opts)
+	opts = opts or {}
+
+	for _, keymap in ipairs(keymaps) do
+		local key = keymap[1]
+		local action = keymap[2]
+		local desc = keymap.desc
+		local mode = keymap.mode or 'n'
+		local buffer = keymap.buffer
+		local silent = keymap.silent
+
+		local keymap_opts = vim.tbl_extend('force', opts, {
+			desc = desc,
+			buffer = buffer,
+			silent = silent,
+		})
+
+		for k, v in pairs(keymap_opts) do
+			if v == nil then
+				keymap_opts[k] = nil
+			end
+		end
+
+		if type(mode) == 'table' then
+			for _, m in ipairs(mode) do
+				vim.keymap.set(m, key, action, keymap_opts)
+			end
+		else
+			vim.keymap.set(mode, key, action, keymap_opts)
+		end
+	end
+end
+
 M.sys_name = vim.loop.os_uname().sysname
 
 M.base = {
