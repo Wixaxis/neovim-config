@@ -94,9 +94,8 @@ M.comment = {
   { '<leader>/', utils.comment.many_lines, desc = 'comment / uncomment selected lines', mode = 'v' },
 }
 
--- TODO: expand terminals support (create, search/select, remove, notify, send, move)
 M.fterm = {
-  { keys = { { 'n', 't' }, '<A-t>' }, cmd = utils.fterm.toggle, desc = 'open / close floating terminal' },
+  { '<A-t>', utils.fterm.toggle, desc = 'open / close floating terminal', mode = { 'n', 't' } },
 }
 
 M.gitsigns = {

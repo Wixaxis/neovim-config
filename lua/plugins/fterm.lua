@@ -2,5 +2,5 @@ return {
   "numToStr/FTerm.nvim",
   opts = { border = 'rounded' },
   lazy = true,
-  commander = require 'configs.mappings'.fterm,
+  keys = require 'configs.mappings'.fterm,
 }
