@@ -6,5 +6,6 @@ return {
         set_dark_mode = function() set_colorscheme 'dark' end,
         set_light_mode = function() set_colorscheme 'light' end,
     },
-    commander = require 'configs.mappings'.auto_dark_mode,
+    keys = require 'configs.mappings'.auto_dark_mode,
+    -- TODO: create command instead of placeholder keymap
 }

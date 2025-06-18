@@ -77,7 +77,7 @@ M.lsp_mappings = {
 }
 
 M.auto_dark_mode = {
-  { keys = {}, cmd = utils.auto_dark_mode.disable, desc = 'disable automatic dark mode' },
+  { '<leader>000', cmd = utils.auto_dark_mode.disable, desc = 'disable automatic dark mode' },
 }
 
 M.autopairs = {
