@@ -1,6 +1,7 @@
 local M = {}
 M.neovide = require 'utils.neovide'
 M.lsp = require 'utils.lsp'
+M.snacks = require 'utils.snacks'
 
 M.str_split = function(inputstr, sep)
 	if sep == nil then sep = "%s"; end
@@ -26,10 +27,7 @@ end
 M.sys_name = vim.loop.os_uname().sysname
 
 M.base = {
-	delete_buffer    = function() require('snacks').bufdelete.delete() end,
-	open_lazygit     = function() require('snacks').lazygit.open() end,
-	git_file_history = function() require('snacks').lazygit.log_file() end,
-	toggle_relative  = function() vim.wo.relativenumber = not vim.wo.relativenumber end
+	toggle_relative = function() vim.wo.relativenumber = not vim.wo.relativenumber end
 }
 
 M.bufferline = {

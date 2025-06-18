@@ -41,9 +41,50 @@ M.assign_base_mappings = function() require 'commander'.add(M.base_mappings, {})
 
 end
 
+M.snacks = {
+  -- find actions
+  { '<leader>f<leader>', utils.snacks.picker.pickers,       desc = 'find available pickers' },
+  { '<leader><leader>',  utils.snacks.picker.keymaps,       desc = 'open keymaps picker' },
+  { '<leader>fh',        utils.snacks.picker.help_tags,     desc = 'find help in manual' },
+  -- base file finders (name)
+  { '<leader>ff',        utils.snacks.picker.find_files,    desc = 'find file' },
+  { '<leader>fo',        utils.snacks.picker.oldfiles,      desc = 'find previously opened files' },
+  { '<leader>fg',        utils.snacks.picker.git_files,     desc = 'find files tracked by git' },
+  { '<leader>fa',        utils.snacks.picker.find_all,      desc = 'find all possible files' },
+  -- base file finders (grep)
+  { '<leader>fw',        utils.snacks.picker.live_grep,     desc = 'find word in project' },
+  { '<leader>fcw',       utils.snacks.picker.grep_string,   desc = 'find current word in project' },
+  -- base local grep
+  { '<leader>fcf',       utils.snacks.picker.infile_search, desc = 'find words in current file' },
+  -- buffers
+  { '<leader>fb',        utils.snacks.picker.buffers,       desc = 'find opened buffer' },
+  -- diagnostics
+  { '<leader>fd',        utils.snacks.picker.diagnostics,   desc = 'find problems in diagnostics' },
+  -- theme
+  { '<leader>th',        utils.snacks.picker.colorscheme,   desc = 'change theme | pick colorscheme' },
+  -- possession.nvim
+  { '<leader>sl',        utils.snacks.picker.sessions,      desc = 'open saved sessions & load picked' },
+  -- TODOs
+  { '<leader>td',        utils.snacks.picker.todo,          desc = 'smart picker for todos and more' },
+  -- git
+  { '<leader>gt',        utils.snacks.picker.git_status,    desc = 'open git status picker' },
+
+  -- lazygit
+  { '<leader>lg',        utils.snacks.lazygit.open,         desc = 'open lazygit' },
+  { '<leader>lh',        utils.snacks.lazygit.file_history, desc = 'open lazygit - current file history' },
+
+}
+
 M.bufferline = {
-  { '<leader>bp',  ':BufferLineTogglePin\n',    desc = 'bufferline - pin current buffer' },
-  { '<leader>btr', utils.bufferline.rename_tab, desc = 'bufferline - rename current tab' },
+  { '<leader>bp',      ':BufferLineTogglePin\n',       desc = 'bufferline - pin current buffer' },
+  { '<leader>btr',     utils.bufferline.rename_tab,    desc = 'bufferline - rename current tab' },
+  { '<leader><Tab>',   ':tabnext\n',                   desc = 'go to next tab' },
+  { '<leader><S-Tab>', ':tabprev\n',                   desc = 'go to prev tab' },
+  { '<leader>n<Tab>',  utils.bufferline.new_named_tab, desc = 'open new tab' },
+  { '<leader>c<Tab>',  ':tabclose\n',                  desc = 'close current tab' },
+  { '<Tab>',           ':BufferLineCycleNext\n',       desc = 'go to next buffer',              silent = true },
+  { '<S-Tab>',         ':BufferLineCyclePrev\n',       desc = 'go to prev buffer',              silent = true },
+  { '<leader>x',       utils.snacks.buffer.delete,     desc = 'close current buffer' },
 }
 
 M.lsp_mappings = {
@@ -60,7 +101,7 @@ M.lsp_mappings = {
 }
 
 M.auto_dark_mode = {
-  { '<leader>000', cmd = utils.auto_dark_mode.disable, desc = 'disable automatic dark mode' },
+  { '<leader>000', utils.auto_dark_mode.disable, desc = 'disable automatic dark mode' },
 }
 
 M.autopairs = {
@@ -106,7 +147,7 @@ M.nvim_ufo = {
 }
 
 M.possession = {
-  { '<leader>sl', utils.snacks_picker.sessions,   desc = 'open saved sessions & load picked' },
+  { '<leader>sl', utils.snacks.picker.sessions,   desc = 'open saved sessions & load picked' },
   { '<leader>ss', utils.possession.save_session,  desc = 'save current session' },
   { '<leader>sp', utils.possession.print_current, desc = 'print name of current session' },
 }
@@ -116,7 +157,7 @@ M.which_key = {
 }
 
 M.yanky = {
-  { '<leader>p', utils.snacks_picker.yanky, desc = 'open yank history' },
+  { '<leader>p', utils.snacks.picker.yanky, desc = 'open yank history' },
 }
 
 return M

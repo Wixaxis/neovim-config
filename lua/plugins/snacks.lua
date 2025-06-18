@@ -15,4 +15,5 @@ return {
     -- statuscolumn = { enabled = true },
     -- words = { enabled = true },
   },
+  keys = require 'configs.mappings'.snacks,
 }
