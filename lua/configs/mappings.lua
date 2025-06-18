@@ -99,7 +99,7 @@ M.fterm = {
 }
 
 M.gitsigns = {
-  { keys = {}, cmd = utils.gitsigns.toggle_line_blame, desc = 'gitsigns - current line blame toggle' },
+  { '<leader>gbt', utils.gitsigns.toggle_line_blame, desc = 'gitsigns - current line blame toggle' },
 }
 
 M.neotest = {

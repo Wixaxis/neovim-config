@@ -22,7 +22,7 @@ return {
         { buffer = bufnr, desc = '[P]review [H]unk' })
     end,
   },
-  commander = require 'configs.mappings'.gitsigns,
+  keys = require 'configs.mappings'.gitsigns,
 }
 
 -- TODO: fix the mappings and cleanup, why assign part on attach, and part globally?
