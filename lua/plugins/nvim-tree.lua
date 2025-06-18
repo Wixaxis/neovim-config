@@ -32,5 +32,5 @@ return {
       }
     },
   },
-  commander = require 'configs.mappings'.nvim_tree,
+  keys = require 'configs.mappings'.nvim_tree,
 }

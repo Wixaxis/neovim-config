@@ -86,15 +86,15 @@ M.gitsigns = {
 }
 
 M.neotest = {
-  { '<leader>tec',  utils.neotest.closest, desc = 'NeoTest - TEst Closest' },
-  { '<leader>tes',  utils.neotest.summary, desc = 'NeoTest - open [te]sts [s]ummary panel' },
-  { '<leader>tea',  utils.neotest.all,     desc = 'NeoTest - [Te]st [a]ll' },
-  { '<leader>tef',  utils.neotest.file,    desc = 'NeoTest - [Te]st [f]ile' },
+  { '<leader>tec', utils.neotest.closest, desc = 'NeoTest - TEst Closest' },
+  { '<leader>tes', utils.neotest.summary, desc = 'NeoTest - open [te]sts [s]ummary panel' },
+  { '<leader>tea', utils.neotest.all,     desc = 'NeoTest - [Te]st [a]ll' },
+  { '<leader>tef', utils.neotest.file,    desc = 'NeoTest - [Te]st [f]ile' },
 }
 
 M.nvim_tree = {
-  { keys = { 'n', '<leader>e' },  cmd = utils.nvim_tree.open,        desc = 'open file tree & focus on current file' },
-  { keys = { 'n', '<leader>rf' }, cmd = utils.nvim_tree.rename_file, desc = 'rename current file' },
+  { '<leader>e',  utils.nvim_tree.open,        desc = 'open file tree & focus on current file' },
+  { '<leader>rf', utils.nvim_tree.rename_file, desc = 'rename current file' },
 }
 
 M.nvim_ufo = {
