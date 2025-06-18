@@ -81,8 +81,8 @@ M.auto_dark_mode = {
 }
 
 M.autopairs = {
-  { cmd = utils.autopairs.disable, desc = 'autopairs - disable' },
-  { cmd = utils.autopairs.enable,  desc = 'autopairs - enable' },
+  { '<leader>apd', utils.autopairs.disable, desc = 'autopairs - disable' },
+  { '<leader>ape', utils.autopairs.enable,  desc = 'autopairs - enable' },
 }
 
 M.barbecue = {
