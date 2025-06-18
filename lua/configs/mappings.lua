@@ -90,8 +90,8 @@ M.barbecue = {
 }
 
 M.comment = {
-  { keys = { 'n', '<leader>/' }, cmd = utils.comment.one_line,   desc = 'comment / uncomment current line' },
-  { keys = { 'v', '<leader>/' }, cmd = utils.comment.many_lines, desc = 'comment / uncomment selected lines' },
+  { '<leader>/', utils.comment.one_line,   desc = 'comment / uncomment current line' },
+  { '<leader>/', utils.comment.many_lines, desc = 'comment / uncomment selected lines', mode = 'v' },
 }
 
 -- TODO: expand terminals support (create, search/select, remove, notify, send, move)

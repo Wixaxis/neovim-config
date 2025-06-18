@@ -7,5 +7,5 @@ return {
     require 'Comment.ft'.set('slim', '/%s')
   end,
   lazy = true,
-  commander = require 'configs.mappings'.comment,
+  keys = require 'configs.mappings'.comment,
 }
