@@ -39,23 +39,6 @@ M.base_mappings = {
 
 M.assign_base_mappings = function() require 'commander'.add(M.base_mappings, {}) end
 
-M.harpoon = function(harpoon)
-  return {
-    { keys = { 'n', '<leader>hh' }, cmd = function() harpoon:list():add() end,                         desc = 'harpoon add file' },
-    { keys = { 'n', '<leader>H' },  cmd = function() harpoon:list():remove() end,                      desc = 'harpoon remove file' },
-    { keys = { 'n', '<leader>ho' }, cmd = function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = 'harpoon toggle quick menu' },
-    { keys = { 'n', '<leader>hn' }, cmd = function() harpoon:list():next() end,                        desc = 'harpoon next file' },
-    { keys = { 'n', '<leader>hp' }, cmd = function() harpoon:list():prev() end,                        desc = 'harpoon prev file' },
-    { keys = { 'n', '<leader>h1' }, cmd = function() harpoon:list():select(1) end,                     desc = 'harpoon file 1' },
-    { keys = { 'n', '<leader>h2' }, cmd = function() harpoon:list():select(2) end,                     desc = 'harpoon file 2' },
-    { keys = { 'n', '<leader>h3' }, cmd = function() harpoon:list():select(3) end,                     desc = 'harpoon file 3' },
-    { keys = { 'n', '<leader>h4' }, cmd = function() harpoon:list():select(4) end,                     desc = 'harpoon file 4' },
-    { keys = { 'n', '<leader>h5' }, cmd = function() harpoon:list():select(5) end,                     desc = 'harpoon file 5' },
-    { keys = { 'n', '<leader>h6' }, cmd = function() harpoon:list():select(6) end,                     desc = 'harpoon file 6' },
-    { keys = { 'n', '<leader>h7' }, cmd = function() harpoon:list():select(7) end,                     desc = 'harpoon file 7' },
-    { keys = { 'n', '<leader>h8' }, cmd = function() harpoon:list():select(8) end,                     desc = 'harpoon file 8' },
-    { keys = { 'n', '<leader>h9' }, cmd = function() harpoon:list():select(9) end,                     desc = 'harpoon file 9' },
-  }
 end
 
 M.bufferline = {
