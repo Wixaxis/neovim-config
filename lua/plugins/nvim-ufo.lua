@@ -39,5 +39,5 @@ return {
             return newVirtText
         end
     },
-    commander = require 'configs.mappings'.nvim_ufo,
+    keys = require 'configs.mappings'.nvim_ufo,
 }

@@ -98,11 +98,11 @@ M.nvim_tree = {
 }
 
 M.nvim_ufo = {
-  { keys = { 'n', 'zR' }, cmd = utils.nvim_ufo.open_all_folds,    desc = 'open all folds in buffer' },
-  { keys = { 'n', 'zM' }, cmd = utils.nvim_ufo.close_all_folds,   desc = 'ufo -> close all folds in buffer' },
-  { keys = {},            cmd = utils.nvim_ufo.foldcolumn_1,      desc = 'ufo -> show (narrow + ugly) foldcolumn' },
-  { keys = nil,           cmd = utils.nvim_ufo.foldcolumn_auto_9, desc = 'ufo -> show (wide + pretty) foldcolumn' },
-  { keys = {},            cmd = utils.nvim_ufo.foldcolumn_0,      desc = 'ufo -> hide foldcolumn' },
+  { 'zR',         utils.nvim_ufo.open_all_folds,    desc = 'open all folds in buffer' },
+  { 'zM',         utils.nvim_ufo.close_all_folds,   desc = 'ufo -> close all folds in buffer' },
+  { '<leader>zu', utils.nvim_ufo.foldcolumn_1,      desc = 'ufo -> show (narrow + ugly) foldcolumn' },
+  { '<leader>zp', utils.nvim_ufo.foldcolumn_auto_9, desc = 'ufo -> show (wide + pretty) foldcolumn' },
+  { '<leader>zh', utils.nvim_ufo.foldcolumn_0,      desc = 'ufo -> hide foldcolumn' },
 }
 
 M.possession = {
