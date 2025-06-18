@@ -22,5 +22,5 @@ return {
             }
         })
     end,
-    commander = require 'configs.mappings'.neotest,
+    keys = require 'configs.mappings'.neotest,
 }

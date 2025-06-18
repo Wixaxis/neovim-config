@@ -86,10 +86,10 @@ M.gitsigns = {
 }
 
 M.neotest = {
-  { keys = { 'n', '<leader>tec' }, cmd = utils.neotest.closest, desc = 'NeoTest - TEst Closest' },
-  { keys = { 'n', '<leader>tes' }, cmd = utils.neotest.summary, desc = 'NeoTest - open [te]sts [s]ummary panel' },
-  { keys = { 'n', '<leader>tea' }, cmd = utils.neotest.all,     desc = 'NeoTest - [Te]st [a]ll' },
-  { keys = { 'n', '<leader>tef' }, cmd = utils.neotest.file,    desc = 'NeoTest - [Te]st [f]ile' },
+  { '<leader>tec',  utils.neotest.closest, desc = 'NeoTest - TEst Closest' },
+  { '<leader>tes',  utils.neotest.summary, desc = 'NeoTest - open [te]sts [s]ummary panel' },
+  { '<leader>tea',  utils.neotest.all,     desc = 'NeoTest - [Te]st [a]ll' },
+  { '<leader>tef',  utils.neotest.file,    desc = 'NeoTest - [Te]st [f]ile' },
 }
 
 M.nvim_tree = {
