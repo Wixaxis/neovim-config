@@ -5,5 +5,5 @@ return {
   dependencies = {"SmiteshP/nvim-navic","nvim-tree/nvim-web-devicons"  },
   opts = {},
   event = 'BufEnter *.*',
-  commander = require 'configs.mappings'.barbecue,
+  keys = require 'configs.mappings'.barbecue,
 }

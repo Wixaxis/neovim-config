@@ -86,11 +86,7 @@ M.autopairs = {
 }
 
 M.barbecue = {
-  { keys = {}, cmd = utils.barbecue.toggle, desc = 'barbecue - toggle (winbar)' },
-}
-
-M.commander = {
-  { keys = { { 'n', 'v' }, '<leader><leader>' }, cmd = utils.commander.show, desc = 'open commander' },
+  { '<leader>bct', utils.barbecue.toggle, desc = 'barbecue - toggle (winbar)' },
 }
 
 M.comment = {
