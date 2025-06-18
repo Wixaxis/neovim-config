@@ -4,7 +4,7 @@ require 'utils.lazy_installer'.ensure_installed()
 require 'lazy'.setup({ { import = 'plugins' } }, {
 	checker = { enabled = true }
 })
-require 'utils'.set_default_colorscheme(nil)
+require 'utils.init'.set_default_colorscheme(nil)
 require 'configs.mappings'.assign_base_mappings()
 if vim.g.neovide then require 'configs.neovide' end
 require 'configs.nvim-treesitter'
@@ -18,6 +18,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 		-- Apply LSP mappings from configs.mappings
 		local lsp_mappings = require('configs.mappings').lsp_mappings
-		require 'utils'.set_keymaps(lsp_mappings, { buffer = bufnr })
+		require 'utils.init'.set_keymaps(lsp_mappings, { buffer = bufnr })
 	end
 })

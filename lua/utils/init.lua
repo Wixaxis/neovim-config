@@ -57,6 +57,7 @@ M.set_keymaps = function(keymaps, opts)
 	end
 end
 
+---@diagnostic disable-next-line: undefined-field
 M.sys_name = vim.loop.os_uname().sysname
 
 M.base = {
