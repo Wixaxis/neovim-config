@@ -25,21 +25,30 @@ M.set_defaults = function()
   vim.notify('Loaded neovide config for ' .. sys_name)
 end
 
-M.commands = {
-  { cmd = neovide.scale_up,   desc = 'neovide -> scale up' },
-  { cmd = neovide.scale_down, desc = 'neovide -> scale down' },
-  { cmd = M.set_defaults,     desc = 'neovide -> reset all settings' },
-  {
-    cmd = function()
-      neovide.set_scale(sys_defaults.scale or defaults.scale or 1)
-    end,
-    desc = 'neovide -> scale reset'
-  },
-}
+-- TODO: split into definitions here, and call actual creation somewhere else
+M.create_commands = function()
+  vim.api.nvim_create_user_command('NeovideScaleUp', function()
+    neovide.scale_up()
+    vim.notify('Neovide scale increased to ' .. vim.g.neovide_scale_factor)
+  end, { desc = 'Increase Neovide scale' })
+
+  vim.api.nvim_create_user_command('NeovideScaleDown', function()
+    neovide.scale_down()
+    vim.notify('Neovide scale decreased to ' .. vim.g.neovide_scale_factor)
+  end, { desc = 'Decrease Neovide scale' })
+
+  vim.api.nvim_create_user_command('NeovideResetSettings', function()
+    M.set_defaults()
+  end, { desc = 'Reset all Neovide settings to defaults' })
+
+  vim.api.nvim_create_user_command('NeovideResetScale', function()
+    local default_scale = sys_defaults.scale or defaults.scale or 1
+    neovide.set_scale(default_scale)
+    vim.notify('Neovide scale reset to ' .. default_scale)
+  end, { desc = 'Reset Neovide scale to default' })
+end
 
 M.set_defaults()
-
-require 'commander'.add(M.commands, {})
 
 neovide.set_colorscheme_autocmd()
 

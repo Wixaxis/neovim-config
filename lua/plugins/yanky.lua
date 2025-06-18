@@ -1,9 +1,15 @@
 return {
-    "gbprod/yanky.nvim",
-    dependencies = "nvim-telescope/telescope.nvim",
-    config = function()
-        require 'yanky'.setup {}
-        require("telescope").load_extension("yank_history")
-    end,
-    commander = require 'configs.mappings'.yanky,
+  "gbprod/yanky.nvim",
+  opts = true,
+  dependencies = { "folke/snacks.nvim" },
+  keys = {
+    {
+      "<leader>p",
+      function()
+          Snacks.picker.yanky()
+      end,
+      mode = { "n", "x" },
+      desc = "Open Yank History",
+    },
+  }
 }

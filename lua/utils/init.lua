@@ -1,7 +1,6 @@
 local M = {}
 M.neovide = require 'utils.neovide'
 M.lsp = require 'utils.lsp'
-M.telescope = require 'utils.telescope'
 
 M.str_split = function(inputstr, sep)
 	if sep == nil then sep = "%s"; end
@@ -58,13 +57,6 @@ M.autopairs = {
 
 M.barbecue = { toggle = function() require 'barbecue.ui'.toggle() end }
 
-M.commander = {
-	show = function()
-		vim.g.last_current_bufnr = vim.api.nvim_get_current_buf()
-		require 'commander'.show({})
-	end
-}
-
 M.comment = {
 	one_line   = function()
 		require 'Comment'
@@ -107,7 +99,6 @@ M.nvim_tree = {
 		vim.cmd ':NvimTreeFindFile\n'
 	end,
 	rename_file = function() require('snacks').rename.rename_file() end
-
 }
 
 M.nvim_ufo = {
@@ -119,7 +110,6 @@ M.nvim_ufo = {
 }
 
 M.possession = {
-	list_sessions = ':Telescope possession list\n',
 	save_session  = function()
 		local curr_session_name = require 'possession.session'.get_session_name()
 		if curr_session_name then
@@ -140,12 +130,6 @@ M.possession = {
 	end,
 }
 
-M.todo_comments = { open_list = ':TodoTelescope\n' }
-
-M.trouble = { toggle = ':Trouble\n', diagnostics = ':Trouble diagnostics\n' }
-
 M.which_key = { show_local = function() require 'which-key'.show({ global = false }) end }
-
-M.yanky = { show_and_paste = ':Telescope yank_history\n' }
 
 return M
