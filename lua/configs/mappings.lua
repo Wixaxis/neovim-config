@@ -112,7 +112,7 @@ M.possession = {
 }
 
 M.which_key = {
-  { keys = { 'n', '<leader>?' }, cmd = utils.which_key.show_local, desc = 'which-key - show local bufer keymaps' },
+  { '<leader>?', utils.which_key.show_local, desc = 'which-key - show local bufer keymaps' },
 }
 
 M.yanky = {
