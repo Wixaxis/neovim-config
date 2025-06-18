@@ -116,7 +116,7 @@ M.which_key = {
 }
 
 M.yanky = {
-  { keys = { 'n', '<leader>p' }, cmd = utils.snacks_picker.yank_history, desc = 'open yank history & paste here' },
+  { '<leader>p', utils.snacks_picker.yanky, desc = 'open yank history' },
 }
 
 return M
