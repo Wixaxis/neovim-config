@@ -57,6 +57,8 @@ M.snacks = {
   -- lazygit
   { '<leader>lg',        utils.snacks.lazygit.open,         desc = 'open lazygit' },
   { '<leader>lh',        utils.snacks.lazygit.file_history, desc = 'open lazygit - current file history' },
+  -- explorer
+  { '<leader>e',        utils.snacks.explorer.reveal,         desc = 'show file explorer' },
 
 }
 
@@ -116,11 +118,6 @@ M.neotest = {
   { '<leader>tes', utils.neotest.summary, desc = 'NeoTest - open [te]sts [s]ummary panel' },
   { '<leader>tea', utils.neotest.all,     desc = 'NeoTest - [Te]st [a]ll' },
   { '<leader>tef', utils.neotest.file,    desc = 'NeoTest - [Te]st [f]ile' },
-}
-
-M.nvim_tree = {
-  { '<leader>e',  utils.nvim_tree.open,        desc = 'open file tree & focus on current file' },
-  { '<leader>rf', utils.nvim_tree.rename_file, desc = 'rename current file' },
 }
 
 M.nvim_ufo = {

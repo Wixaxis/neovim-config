@@ -38,4 +38,7 @@ M.lazygit.file_history      = function() Snacks.lazygit.log_file() end
 M.buffer                    = {}
 M.buffer.delete             = function() Snacks.bufdelete.delete() end
 
+M.explorer                  = {}
+M.explorer.reveal           = function() Snacks.explorer() end
+
 return M

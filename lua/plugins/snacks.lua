@@ -10,10 +10,11 @@ return {
     notifier = { enabled = true },
     lazygit = { enabled = true },
     picker = { enabled = true },
+    explorer = { enabled = true },
     -- quickfile = { enabled = true },
     -- scroll = { enabled = true },
     -- statuscolumn = { enabled = true },
-    -- words = { enabled = true },
+    words = { enabled = true },
   },
   keys = require 'configs.mappings'.snacks,
 }
