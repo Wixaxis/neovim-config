@@ -1,3 +1,4 @@
+-- AI chat plugin that lets you talk to various language models like GPT, Claude, and Gemini
 return {
     "yetone/avante.nvim",
     event = 'VeryLazy',

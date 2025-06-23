@@ -1,3 +1,4 @@
+-- Creates a status line at the bottom of the window with file info, Git status, and time
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = 'archibate/lualine-time',

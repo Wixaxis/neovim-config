@@ -1,3 +1,4 @@
+-- Intelligent code completion with multiple sources like LSP, snippets, and AI
 return {
     { 'saghen/blink.compat', version = '*', lazy = true, opts = {} },
     {

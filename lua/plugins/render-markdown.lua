@@ -1,3 +1,4 @@
+-- Renders Markdown files with syntax highlighting and formatting
 return {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons

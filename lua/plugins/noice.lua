@@ -1,3 +1,4 @@
+-- Provides better UI for messages, command line, and notifications
 return {
     "folke/noice.nvim",
     event = "VeryLazy",

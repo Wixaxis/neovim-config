@@ -1,3 +1,4 @@
+-- Runs and displays test results directly in Neovim
 return {
     "nvim-neotest/neotest",
     dependencies = {

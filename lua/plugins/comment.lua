@@ -1,3 +1,4 @@
+-- Makes it easy to comment and uncomment lines of code
 return {
   'numToStr/Comment.nvim',
   config = function()

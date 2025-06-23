@@ -1,3 +1,4 @@
+-- Highlights the current line and word under the cursor
 return {
     'yamatsum/nvim-cursorline',
     opts = {

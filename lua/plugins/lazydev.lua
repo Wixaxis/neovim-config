@@ -1,3 +1,4 @@
+-- Provides better Lua development experience with library autocompletion
 return {
   {
     "folke/lazydev.nvim",

@@ -1,3 +1,4 @@
+-- Provides various UI enhancements like dashboard, file explorer, and input helpers
 return {
   "folke/snacks.nvim",
   priority = 1000,

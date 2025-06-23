@@ -1,3 +1,4 @@
+-- Automatically saves files when you stop typing
 return {
     "Pocco81/auto-save.nvim",
     opts = {

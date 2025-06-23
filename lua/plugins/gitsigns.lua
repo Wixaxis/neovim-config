@@ -1,3 +1,4 @@
+-- Shows Git changes in the gutter and provides Git blame information
 return {
   'lewis6991/gitsigns.nvim',
   opts = {

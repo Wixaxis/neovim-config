@@ -1,3 +1,4 @@
+-- Automatically switches between dark and light themes based on system settings
 local set_colorscheme = require 'utils.init'.set_default_colorscheme
 return {
     "f-person/auto-dark-mode.nvim",

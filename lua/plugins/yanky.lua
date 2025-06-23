@@ -1,3 +1,4 @@
+-- Provides a better yank history and paste functionality
 return {
     "gbprod/yanky.nvim",
     opts = true,

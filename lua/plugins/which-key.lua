@@ -1,3 +1,4 @@
+-- Shows available keybindings when you press the leader key
 return {
     'folke/which-key.nvim',
     lazy = false,
