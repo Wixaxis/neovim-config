@@ -41,4 +41,7 @@ M.buffer.delete = function() Snacks.bufdelete.delete() end
 M.explorer = {}
 M.explorer.reveal = function() Snacks.explorer() end
 
+M.terminal = {}
+M.terminal.toggle = function() Snacks.terminal() end
+
 return M

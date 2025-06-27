@@ -92,8 +92,6 @@ M.comment = {
   many_lines = "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
 }
 
-M.fterm = { toggle = function() require('FTerm').toggle() end }
-
 M.gitsigns = {
   toggle_line_blame = function()
     if vim.api.nvim_buf_is_valid(vim.g.last_current_bufnr) then vim.api.nvim_set_current_buf(vim.g.last_current_bufnr) end

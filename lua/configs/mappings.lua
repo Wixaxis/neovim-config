@@ -25,6 +25,7 @@ M.base_mappings = {
 M.assign_base_mappings = function() utils.set_keymaps(M.base_mappings) end
 
 M.snacks = {
+  { '<A-t>', utils.snacks.terminal.toggle, desc = 'open / close floating terminal', mode = { 'n', 't' } },
   -- find actions
   { '<leader>f<leader>', utils.snacks.picker.pickers, desc = 'find available pickers' },
   { '<leader><leader>', utils.snacks.picker.keymaps, desc = 'open keymaps picker' },
@@ -100,10 +101,6 @@ M.barbecue = {
 M.comment = {
   { '<leader>/', utils.comment.one_line, desc = 'comment / uncomment current line' },
   { '<leader>/', utils.comment.many_lines, desc = 'comment / uncomment selected lines', mode = 'v' },
-}
-
-M.fterm = {
-  { '<A-t>', utils.fterm.toggle, desc = 'open / close floating terminal', mode = { 'n', 't' } },
 }
 
 M.gitsigns = {
