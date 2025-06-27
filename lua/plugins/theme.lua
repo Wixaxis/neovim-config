@@ -1,5 +1,5 @@
 -- Provides various color themes for Neovim
-vim.g.neon_style = "dark" -- default | doom | dark | light
+vim.g.neon_style = 'dark' -- default | doom | dark | light
 return {
   'navarasu/onedark.nvim',
   'rmehri01/onenord.nvim',

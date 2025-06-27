@@ -36,9 +36,7 @@ vim.api.nvim_set_keymap('x', 'p', '"_dP', { noremap = true })
 vim.api.nvim_set_keymap('x', 'P', '"_dP', { noremap = true })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+  callback = function() vim.highlight.on_yank() end,
   group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
   pattern = '*',
 })

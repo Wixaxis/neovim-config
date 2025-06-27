@@ -1,2 +1,2 @@
 -- Allows editing files that require sudo permissions
-return { "lambdalisue/suda.vim" }
+return { 'lambdalisue/suda.vim' }

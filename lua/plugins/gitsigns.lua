@@ -15,15 +15,12 @@ return {
       delay = 100,
     },
     on_attach = function(bufnr)
-      vim.keymap.set('n', '<leader>gp', function() require('gitsigns').nav_hunk('prev') end,
-        { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
-      vim.keymap.set('n', '<leader>hn', function() require('gitsigns').nav_hunk('next') end,
-        { buffer = bufnr, desc = '[G]o to [N]ext Hunk' })
-      vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk,
-        { buffer = bufnr, desc = '[P]review [H]unk' })
+      vim.keymap.set('n', '<leader>gp', function() require('gitsigns').nav_hunk 'prev' end, { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
+      vim.keymap.set('n', '<leader>hn', function() require('gitsigns').nav_hunk 'next' end, { buffer = bufnr, desc = '[G]o to [N]ext Hunk' })
+      vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[P]review [H]unk' })
     end,
   },
-  keys = require 'configs.mappings'.gitsigns,
+  keys = require('configs.mappings').gitsigns,
 }
 
 -- TODO: fix the mappings and cleanup, why assign part on attach, and part globally?

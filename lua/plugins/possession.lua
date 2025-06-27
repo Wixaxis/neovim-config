@@ -4,5 +4,5 @@ return {
   dependencies = 'nvim-lua/plenary.nvim',
   opts = true,
   lazy = false,
-  keys = require 'configs.mappings'.possession,
+  keys = require('configs.mappings').possession,
 }

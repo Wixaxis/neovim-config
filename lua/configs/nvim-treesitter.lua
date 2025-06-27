@@ -1,7 +1,7 @@
-vim.filetype.add({
-  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
-  extension = { slim = 'slim', ['html.slim'] = 'slim' }
-})
+vim.filetype.add {
+  pattern = { ['.*/hypr/.*%.conf'] = 'hyprlang' },
+  extension = { slim = 'slim', ['html.slim'] = 'slim' },
+}
 
 ---@diagnostic disable-next-line: missing-fields
 require('nvim-treesitter.configs').setup {
@@ -14,9 +14,7 @@ require('nvim-treesitter.configs').setup {
     disable = function(_, buf)
       local max_filesize = 100 * 1024 -- 100 KB
       local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-      if ok and stats and stats.size > max_filesize then
-        return true
-      end
+      if ok and stats and stats.size > max_filesize then return true end
     end,
     additional_vim_regex_highlighting = false,
   },

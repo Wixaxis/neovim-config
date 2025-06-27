@@ -1,8 +1,8 @@
 local M = {}
 
 local neovide = require 'utils'.neovide
-local sys_name = require 'utils'.sys_name
-local defaults = require 'defaults'.neovide
+local sys_name = require('utils').sys_name
+local defaults = require('defaults').neovide
 
 local sys_defaults = {}
 if sys_name == 'Linux' then
@@ -37,9 +37,8 @@ M.create_commands = function()
     vim.notify('Neovide scale decreased to ' .. vim.g.neovide_scale_factor)
   end, { desc = 'Decrease Neovide scale' })
 
-  vim.api.nvim_create_user_command('NeovideResetSettings', function()
-    M.set_defaults()
-  end, { desc = 'Reset all Neovide settings to defaults' })
+  vim.api.nvim_create_user_command('NeovideResetSettings', function() M.set_defaults() end,
+    { desc = 'Reset all Neovide settings to defaults' })
 
   vim.api.nvim_create_user_command('NeovideResetScale', function()
     local default_scale = sys_defaults.scale or defaults.scale or 1
