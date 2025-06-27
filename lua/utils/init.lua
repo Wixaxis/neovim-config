@@ -2,6 +2,7 @@ local M = {}
 M.neovide = require 'utils.neovide'
 M.lsp = require 'utils.lsp'
 M.snacks = require 'utils.snacks'
+M.autocmds = require 'utils.autocmds'
 
 M.str_split = function(inputstr, sep)
   if sep == nil then sep = '%s' end
