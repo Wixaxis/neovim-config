@@ -26,6 +26,11 @@ function M.setup()
       require('utils.init').set_keymaps(lsp_mappings, { buffer = bufnr })
     end,
   })
+  vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function() vim.highlight.on_yank() end,
+    group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
+    pattern = '*',
+  })
 end
 
 return M
