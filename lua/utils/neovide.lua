@@ -13,7 +13,7 @@ M.scale_down = function() M.set_scale(vim.g.neovide_scale_factor - 0.1) end
 M.set_cursor = function(cursor) vim.g.neovide_cursor_vfx_mode = cursor end
 
 M.set_transparency = function(opacity)
-  vim.g.neovide_transparency = opacity
+  vim.g.neovide_opacity = opacity
   vim.g.transparency = 0.5
 end
 
