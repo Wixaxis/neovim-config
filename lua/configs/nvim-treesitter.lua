@@ -5,10 +5,11 @@ vim.filetype.add {
 
 ---@diagnostic disable-next-line: missing-fields
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { 'slim', 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' }, -- 'slim',
   sync_install = false,
   auto_install = true,
-  ignore_install = {},
+  -- slim treesitter config is broken, crashes and has memory leak as of 1.07.2025
+  ignore_install = { 'slim' },
   highlight = {
     enable = true,
     disable = function(_, buf)
