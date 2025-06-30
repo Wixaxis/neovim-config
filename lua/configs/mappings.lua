@@ -63,13 +63,13 @@ M.snacks = {
 M.bufferline = {
   { '<leader>bp', ':BufferLineTogglePin\n', desc = 'bufferline - pin current buffer' },
   { '<leader>btr', utils.bufferline.rename_tab, desc = 'bufferline - rename current tab' },
-  { '<leader><Tab>', ':tabnext\n', desc = 'go to next tab' },
-  { '<leader><S-Tab>', ':tabprev\n', desc = 'go to prev tab' },
+  { '<leader><Tab>', ':tabnext\n', desc = 'go to next tab', silent = true },
+  { '<leader><S-Tab>', ':tabprev\n', desc = 'go to prev tab', silent = true },
   { '<leader>n<Tab>', utils.bufferline.new_named_tab, desc = 'open new tab' },
   { '<leader>c<Tab>', ':tabclose\n', desc = 'close current tab' },
   { '<Tab>', ':BufferLineCycleNext\n', desc = 'go to next buffer', silent = true },
   { '<S-Tab>', ':BufferLineCyclePrev\n', desc = 'go to prev buffer', silent = true },
-  { '<leader>x', utils.snacks.buffer.delete, desc = 'close current buffer' },
+  { '<leader>x', utils.snacks.buffer.delete, desc = 'close current buffer', silent = true },
 }
 
 M.lsp_mappings = {
