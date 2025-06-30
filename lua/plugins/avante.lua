@@ -5,7 +5,7 @@ return {
   lazy = false,
   version = false,
   opts = {
-    provider = 'openrouter-claude-sonnet-4',
+    provider = 'openrouter-gemini-2.5-pro',
     providers = {
       -- OpenAI GPT Models
       ['openrouter-gpt-4.1'] = {
@@ -72,16 +72,16 @@ return {
       },
 
       -- Google Gemini Models
-      ['openrouter-gemini-2.5-pro-preview'] = {
+      ['openrouter-gemini-2.5-pro'] = {
         __inherited_from = 'openai',
         endpoint = 'https://openrouter.ai/api/v1',
-        model = 'google/gemini-2.5-pro-preview',
+        model = 'google/gemini-2.5-pro',
         api_key_name = 'OPENROUTER_API_KEY',
       },
-      ['openrouter-gemini-2.5-flash-preview'] = {
+      ['openrouter-gemini-2.5-flash'] = {
         __inherited_from = 'openai',
         endpoint = 'https://openrouter.ai/api/v1',
-        model = 'google/gemini-2.5-flash-preview-05-20',
+        model = 'google/gemini-2.5-flash',
         api_key_name = 'OPENROUTER_API_KEY',
       },
       ['openrouter-gemini-2.0-flash'] = {
