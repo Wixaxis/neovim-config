@@ -52,6 +52,8 @@ M.snacks = {
   { '<leader>td',        utils.snacks.picker.todo,          desc = 'smart picker for todos and more' },
   -- git
   { '<leader>gt',        utils.snacks.picker.git_status,    desc = 'open git status picker' },
+  -- github
+  { '<leader>gp',        utils.snacks.picker.gh_pr,         desc = 'GitHub Pull Requests (open)' },
 
   -- lazygit
   { '<leader>lg',        utils.snacks.lazygit.open,         desc = 'open lazygit' },

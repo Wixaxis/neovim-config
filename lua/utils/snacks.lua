@@ -30,6 +30,7 @@ M.picker.jumps = function() Snacks.picker.jumps() end
 M.picker.notifications = function() Snacks.picker.notifications() end
 M.picker.pickers = function() Snacks.picker.pickers() end
 M.picker.yanky = function() Snacks.picker.yanky() end
+M.picker.gh_pr = function() Snacks.picker.gh_pr() end
 
 M.lazygit = {}
 M.lazygit.open = function() Snacks.lazygit.open() end
