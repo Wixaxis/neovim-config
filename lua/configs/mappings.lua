@@ -130,7 +130,7 @@ M.possession = {
 }
 
 M.visual_whitespace = {
-  { '<leader>vwst', utils.snacks.picker.sessions, desc = 'visual whitespace toggle' },
+  { '<leader>vwst', function() require('visual-whitespace').toggle() end, desc = 'visual whitespace toggle' },
 }
 
 M.which_key = {
