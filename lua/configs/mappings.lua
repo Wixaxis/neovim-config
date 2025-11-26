@@ -129,6 +129,16 @@ M.possession = {
   { '<leader>sp', utils.possession.print_current, desc = 'print name of current session' },
 }
 
+M.sidekick = {
+  { '<esc>', utils.sidekick.double_escape, mode = 't', expr = true, desc = 'Double escape to normal mode' },
+  { '<leader>as', utils.sidekick.next_edit_suggestion, expr = true, desc = 'Goto/Apply Next Edit Suggestion' },
+  { '<leader>at', utils.sidekick.send_this, mode = { 'x', 'n' }, desc = 'Send This' },
+  { '<leader>af', utils.sidekick.send_file, desc = 'Send File' },
+  { '<leader>av', utils.sidekick.send_selection, mode = { 'x' }, desc = 'Send Visual Selection' },
+  { '<leader>ap', utils.sidekick.prompt, mode = { 'n', 'x' }, desc = 'Sidekick Select Prompt' },
+  { '<leader>aa', utils.sidekick.toggle_cursor, desc = 'Sidekick Toggle Cursor' },
+}
+
 M.visual_whitespace = {
   { '<leader>vwst', utils.visual_whitespace.toggle, desc = 'visual whitespace toggle' },
 }

@@ -153,6 +153,31 @@ M.possession = {
 
 M.visual_whitespace = { toggle = function() require('visual-whitespace').toggle() end }
 
+M.sidekick = {
+  double_escape = (function()
+    local esc_timer = (vim.uv or vim.loop).new_timer()
+    return function()
+      if esc_timer:is_active() then
+        esc_timer:stop()
+        vim.cmd 'stopinsert'
+      else
+        esc_timer:start(200, 0, function() end)
+        return '<esc>'
+      end
+    end
+  end)(),
+  next_edit_suggestion = function()
+    if not require('sidekick').nes_jump_or_apply() then
+      return '<Tab>'
+    end
+  end,
+  send_this = function() require('sidekick.cli').send { msg = '{this}' } end,
+  send_file = function() require('sidekick.cli').send { msg = '{file}' } end,
+  send_selection = function() require('sidekick.cli').send { msg = '{selection}' } end,
+  prompt = function() require('sidekick.cli').prompt() end,
+  toggle_cursor = function() require('sidekick.cli').toggle { name = 'cursor', focus = true } end,
+}
+
 M.which_key = { show_local = function() require('which-key').show { global = false } end }
 
 return M
