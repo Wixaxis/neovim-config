@@ -151,6 +151,8 @@ M.possession = {
   end,
 }
 
+M.visual_whitespace = { toggle = function() require('visual-whitespace').toggle() end }
+
 M.which_key = { show_local = function() require('which-key').show { global = false } end }
 
 return M
