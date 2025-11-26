@@ -58,6 +58,7 @@ M.snacks = {
   { '<leader>lh', utils.snacks.lazygit.file_history, desc = 'open lazygit - current file history' },
   -- explorer
   { '<leader>e', utils.snacks.explorer.reveal, desc = 'show file explorer' },
+  { '<leader>E', utils.snacks.explorer.reveal_all, desc = 'show file explorer with hidden and ignored files' },
 }
 
 M.bufferline = {
