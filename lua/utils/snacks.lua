@@ -1,11 +1,11 @@
 local M = {}
 
 M.picker = {}
-M.picker.find_files = function() Snacks.picker.files() end
+M.picker.find_files = function() Snacks.picker.files({ formatters = { file = { filename_first = true, truncate = 300 } } }) end
 M.picker.git_files = function() Snacks.picker.git_files() end
 M.picker.find_all = function() Snacks.picker.files { hidden = true, ignored = true } end
 M.picker.oldfiles = function() Snacks.picker.recent() end
-M.picker.live_grep = function() Snacks.picker.grep() end
+M.picker.live_grep = function() Snacks.picker.grep({ formatters = { file = { filename_first = true, truncate = 300 } } }) end
 M.picker.grep_string = function() Snacks.picker.grep_word() end
 M.picker.infile_search = function() Snacks.picker.lines() end
 M.picker.buffers = function() Snacks.picker.buffers() end
@@ -40,6 +40,7 @@ M.buffer.delete = function() Snacks.bufdelete.delete() end
 
 M.explorer = {}
 M.explorer.reveal = function() Snacks.explorer() end
+M.explorer.reveal_all = function() Snacks.explorer({ hidden = true, ignored = true }) end
 
 M.terminal = {}
 M.terminal.toggle = function() Snacks.terminal() end
