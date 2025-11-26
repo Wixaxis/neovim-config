@@ -7,7 +7,6 @@ return {
     dependencies = {
       'rafamadriz/friendly-snippets',
       'folke/lazydev.nvim',
-      'Kaiser-Yang/blink-cmp-avante',
     },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -35,11 +34,10 @@ return {
         nerd_font_variant = 'mono',
       },
       sources = {
-        default = { 'avante', 'lsp', 'lazydev', 'path', 'snippets', 'cmdline', 'buffer' },
+        default = { 'lsp', 'lazydev', 'path', 'snippets', 'cmdline', 'buffer' },
         providers = {
           lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink' },
           markdown = { name = 'RenderMarkdown', module = 'render-markdown.integ.blink', fallbacks = { 'lsp' } },
-          avante = { name = 'Avante', module = 'blink-cmp-avante' },
         },
       },
       completion = {
