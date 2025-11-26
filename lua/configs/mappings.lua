@@ -129,6 +129,10 @@ M.possession = {
   { '<leader>sp', utils.possession.print_current, desc = 'print name of current session' },
 }
 
+M.visual_whitespace = {
+  { '<leader>vwst', utils.snacks.picker.sessions, desc = 'visual whitespace toggle' },
+}
+
 M.which_key = {
   { '<leader>?', utils.which_key.show_local, desc = 'which-key - show local bufer keymaps' },
 }
