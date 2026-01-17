@@ -7,17 +7,6 @@ local keys = {
   { icon = '󰩈', key = 'q', desc = 'Quit neovim', action = ':qa', padding = 1 },
 }
 
-local session_key = function(i, name) return { icon = '', indent = 4, key = tostring(i), desc = name, action = ':PossessionLoad ' .. name .. '\n' } end
-
-local path = vim.fn.stdpath 'data' .. '/possession'
-local files = vim.split(vim.fn.glob(path .. '/*.json'), '\n')
-if #files > 0 then
-  table.insert(keys, { desc = 'Sessions', icon = ' ' })
-  for i, file in pairs(files) do
-    table.insert(keys, session_key(i, vim.fs.basename(file):gsub('%.json', ''):gsub('%%20', ' ')))
-  end
-end
-
 return {
   enabled = true,
   preset = { keys = keys },

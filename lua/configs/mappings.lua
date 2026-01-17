@@ -46,8 +46,6 @@ M.snacks = {
   { '<leader>fd',        utils.snacks.picker.diagnostics,   desc = 'find problems in diagnostics' },
   -- theme
   { '<leader>th',        utils.snacks.picker.colorscheme,   desc = 'change theme | pick colorscheme' },
-  -- possession.nvim
-  { '<leader>sl',        utils.snacks.picker.sessions,      desc = 'open saved sessions & load picked' },
   -- TODOs
   { '<leader>td',        utils.snacks.picker.todo,          desc = 'smart picker for todos and more' },
   -- git
@@ -125,10 +123,11 @@ M.nvim_ufo = {
   { '<leader>zh', utils.nvim_ufo.foldcolumn_0,      desc = 'ufo -> hide foldcolumn' },
 }
 
-M.possession = {
-  { '<leader>sl', utils.snacks.picker.sessions,   desc = 'open saved sessions & load picked' },
-  { '<leader>ss', utils.possession.save_session,  desc = 'save current session' },
-  { '<leader>sp', utils.possession.print_current, desc = 'print name of current session' },
+M.resession = {
+  { '<leader>ss', utils.resession.save_session, desc = 'save current session to project root' },
+  { '<leader>sl', utils.resession.load_session, desc = 'load session from project root' },
+  { '<leader>sd', utils.resession.delete_session, desc = 'delete session from project root' },
+  { '<leader>sp', utils.resession.print_current, desc = 'print current session name' },
 }
 
 M.sidekick = {

@@ -132,19 +132,32 @@ M.nvim_ufo = {
   foldcolumn_0 = ':bufdo set foldcolumn=0\n',
 }
 
-M.possession = {
+M.resession = {
   save_session = function()
-    local curr_session_name = require('possession.session').get_session_name()
-    if curr_session_name then
-      require('possession').save(curr_session_name)
-    else
-      vim.ui.input({ prompt = 'Enter name for new session: ' }, function(input) require('possession').save(input) end)
+    local resession = require('resession')
+    local session_name = vim.fn.getcwd()
+    resession.save(session_name, { dir = '.nvim-session', notify = true })
+  end,
+  load_session = function()
+    local resession = require('resession')
+    local session_name = vim.fn.getcwd()
+    resession.load(session_name, { dir = '.nvim-session', silence_errors = true })
+    -- Load doesn't have notify option, but we can add our own notification
+    local current = resession.get_current()
+    if current then
+      vim.notify('Session loaded: ' .. current, vim.log.levels.INFO)
     end
   end,
+  delete_session = function()
+    local resession = require('resession')
+    local session_name = vim.fn.getcwd()
+    resession.delete(session_name, { dir = '.nvim-session', notify = true })
+  end,
   print_current = function()
-    local curr_session_name = require('possession.session').get_session_name()
-    if curr_session_name then
-      vim.notify('Current session: ' .. curr_session_name)
+    local resession = require('resession')
+    local current = resession.get_current()
+    if current then
+      vim.notify('Current session: ' .. current)
     else
       vim.notify('Currently not in a session', vim.log.levels.WARN)
     end
