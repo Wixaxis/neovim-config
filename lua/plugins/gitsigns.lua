@@ -1,3 +1,4 @@
+-- TODO(pack): safe to move to vim.pack now
 -- Shows Git changes in the gutter and provides Git blame information
 return {
   'lewis6991/gitsigns.nvim',

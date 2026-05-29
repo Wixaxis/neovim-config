@@ -1,5 +1,6 @@
 return {
   dark_theme = 'onenord',
+  -- dark_theme = 'nordic',
   light_theme = 'onenord-light',
   neovide = {
     -- every setting can be put both on system specific and general levels

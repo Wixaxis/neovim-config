@@ -1,3 +1,4 @@
+-- TODO(pack): safe to move to vim.pack now
 -- Highlights the current line and word under the cursor
 return {
   'yamatsum/nvim-cursorline',

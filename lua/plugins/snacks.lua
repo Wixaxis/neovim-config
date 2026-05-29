@@ -1,3 +1,4 @@
+-- TODO(pack): safe to move to vim.pack now
 -- Provides various UI enhancements like dashboard, file explorer, and input helpers
 return {
   'folke/snacks.nvim',

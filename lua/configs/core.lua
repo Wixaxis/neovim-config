@@ -21,6 +21,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = false
 vim.opt.foldlevelstart = 99
 vim.opt.foldlevel = 99
+vim.opt.cmdheight = 0
 vim.opt.laststatus = 3
 vim.opt.scrolloff = 8
 vim.opt.swapfile = false

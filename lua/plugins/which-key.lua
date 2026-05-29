@@ -1,3 +1,4 @@
+-- TODO(pack): safe to move to vim.pack now
 -- Shows available keybindings when you press the leader key
 return {
   'folke/which-key.nvim',

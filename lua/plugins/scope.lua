@@ -1,3 +1,4 @@
+-- TODO(pack): safe to move to vim.pack now
 -- Manages buffer scopes for better window and tab management
 -- Must load before resession.nvim for extension support
 return {

@@ -1,3 +1,4 @@
+-- TODO(pack): maybe later
 -- Provides better Lua development experience with library autocompletion
 return {
   {

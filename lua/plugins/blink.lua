@@ -1,3 +1,4 @@
+-- TODO(pack): keep on Lazy until the end
 -- Intelligent code completion with multiple sources like LSP, snippets, and AI
 return {
   { 'saghen/blink.compat', version = '*', lazy = true, opts = {} },
@@ -54,6 +55,16 @@ return {
         },
       },
     },
+    config = function(_, opts)
+      local utils = require 'blink.cmp.lib.utils'
+
+      utils.to_string_or_empty = utils.to_string_or_empty
+        or function(value)
+          return (utils.is_not_nil(value) and type(value) == 'string') and value or ''
+        end
+
+      require('blink.cmp').setup(opts)
+    end,
     opts_extend = { 'sources.default' },
   },
 }

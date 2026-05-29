@@ -4,10 +4,11 @@ require('utils.lazy_installer').ensure_installed()
 require('lazy').setup({ { import = 'plugins' } }, {
   checker = { enabled = true },
 })
+require('custom').setup()
 require('utils.init').set_default_colorscheme(nil)
 require('configs.mappings').assign_base_mappings()
 if vim.g.neovide then require 'configs.neovide' end
 require 'configs.nvim-treesitter'
 require('utils.autocmds').setup()
 require 'configs.lsp'
-
+require('custom').setup_lsp()

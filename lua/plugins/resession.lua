@@ -1,3 +1,4 @@
+-- TODO(pack): keep on Lazy until the end
 return {
   'stevearc/resession.nvim',
   lazy = false,

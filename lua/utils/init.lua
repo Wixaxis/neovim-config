@@ -1,6 +1,5 @@
 local M = {}
 M.neovide = require 'utils.neovide'
-M.lsp = require 'utils.lsp'
 M.snacks = require 'utils.snacks'
 M.autocmds = require 'utils.autocmds'
 
@@ -16,12 +15,10 @@ end
 M.set_default_colorscheme = function(theme_mode)
   theme_mode = theme_mode or 'dark'
   local default_theme = theme_mode == 'dark' and require('defaults').dark_theme or require('defaults').light_theme
-  local current_theme = vim.cmd.colorscheme()
+  local current_theme = vim.g.colors_name or 'default'
   if current_theme == default_theme then
-    vim.notify('Theme [' .. current_theme .. '] already set, omitting...')
     return
   end
-  vim.notify('Set theme to ' .. default_theme)
   vim.cmd.colorscheme(default_theme)
 end
 

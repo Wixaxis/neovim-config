@@ -1,3 +1,4 @@
+-- TODO(pack): safe to move to vim.pack now
 -- Automatically saves files when you stop typing
 return {
   'Pocco81/auto-save.nvim',

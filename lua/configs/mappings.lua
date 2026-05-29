@@ -1,6 +1,9 @@
 local utils = require 'utils.init'
 local M = {}
 
+local lsp_references = utils.snacks.picker.lsp_references
+local lsp_format = function() vim.lsp.buf.format { async = true } end
+
 M.base_mappings = {
   -- windows
   { '<C-h>',       '<C-w>h',                   desc = 'go to window left' },
@@ -44,6 +47,7 @@ M.snacks = {
   { '<leader>fb',        utils.snacks.picker.buffers,       desc = 'find opened buffer' },
   -- diagnostics
   { '<leader>fd',        utils.snacks.picker.diagnostics,   desc = 'find problems in diagnostics' },
+  { '<leader>fl',        utils.snacks.picker.lsp_enable,    desc = 'toggle installed language servers' },
   -- theme
   { '<leader>th',        utils.snacks.picker.colorscheme,   desc = 'change theme | pick colorscheme' },
   -- TODOs
@@ -74,16 +78,16 @@ M.bufferline = {
 }
 
 M.lsp_mappings = {
-  { '<leader>rs', utils.lsp.rename_symbol,         '[R]ename [s]ymbol' },
-  { '<leader>ca', utils.lsp.code_action,           '[C]ode [a]ction' },
-  { 'gd',         utils.lsp.go_to_definition,      '[G]o to [d]efinition' },
-  { 'gD',         utils.lsp.go_to_declaration,     '[G]o to [D]eclaration' },
-  { 'gr',         utils.lsp.find_references,       '[G]o to [r]eference' },
-  { 'gI',         utils.lsp.go_to_implementation,  '[G]o to [i]mplementation' },
-  { 'gtd',        utils.lsp.go_to_type_definition, '[G]o to [t]ype [d]efinition' },
-  { 'K',          utils.lsp.hover,                 'Hover' },
-  { '<C-g>',      utils.lsp.function_signature,    'Signature' },
-  { '<leader>fm', utils.lsp.format,                'Format' },
+  { '<leader>rs', vim.lsp.buf.rename,          '[R]ename [s]ymbol' },
+  { '<leader>ca', vim.lsp.buf.code_action,     '[C]ode [a]ction' },
+  { 'gd',         vim.lsp.buf.definition,      '[G]o to [d]efinition' },
+  { 'gD',         vim.lsp.buf.declaration,     '[G]o to [D]eclaration' },
+  { 'gr',         lsp_references,              '[G]o to [r]eference' },
+  { 'gI',         vim.lsp.buf.implementation,  '[G]o to [i]mplementation' },
+  { 'gtd',        vim.lsp.buf.type_definition, '[G]o to [t]ype [d]efinition' },
+  { 'K',          vim.lsp.buf.hover,           'Hover' },
+  { '<C-g>',      vim.lsp.buf.signature_help,  'Signature' },
+  { '<leader>fm', lsp_format,                  'Format' },
 }
 
 M.auto_dark_mode = {

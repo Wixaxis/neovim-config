@@ -1,3 +1,4 @@
+-- TODO(pack): safe to move to vim.pack now
 return {
   'MagicDuck/grug-far.nvim',
   opts = {

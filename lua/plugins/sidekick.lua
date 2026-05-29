@@ -1,3 +1,4 @@
+-- TODO(pack): safe to move to vim.pack now
 return {
   'folke/sidekick.nvim',
   lazy = false,

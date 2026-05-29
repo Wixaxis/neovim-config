@@ -1,3 +1,4 @@
+-- TODO(pack): maybe later
 -- Shows open files as tabs at the top of the window
 return {
   'akinsho/bufferline.nvim',

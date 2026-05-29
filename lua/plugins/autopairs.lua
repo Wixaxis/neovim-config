@@ -1,3 +1,4 @@
+-- TODO(pack): maybe later
 -- Automatically adds closing brackets, quotes, and parentheses
 return {
   'windwp/nvim-autopairs',

@@ -1,3 +1,4 @@
+-- TODO(pack): keep on Lazy until the end
 -- Runs and displays test results directly in Neovim
 return {
   'nvim-neotest/neotest',

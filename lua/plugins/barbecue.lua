@@ -1,3 +1,4 @@
+-- TODO(pack): maybe later
 -- Shows a breadcrumb navigation bar at the top of the window
 return {
   'utilyre/barbecue.nvim',

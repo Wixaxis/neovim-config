@@ -1,7 +1,7 @@
+-- TODO(pack): safe to move to vim.pack now
 -- Provides various color themes for Neovim
 vim.g.neon_style = 'dark' -- default | doom | dark | light
 return {
-  'navarasu/onedark.nvim',
   'rmehri01/onenord.nvim',
   'AlexvZyl/nordic.nvim',
   'shaunsingh/nord.nvim',

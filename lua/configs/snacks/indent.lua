@@ -13,5 +13,8 @@ return {
   },
   scope = {
     underline = true,
+    treesitter = {
+      injections = false,
+    },
   },
 }

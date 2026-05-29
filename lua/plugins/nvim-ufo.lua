@@ -1,3 +1,4 @@
+-- TODO(pack): keep on Lazy until the end
 -- Provides better code folding with preview of folded content
 return {
   'kevinhwang91/nvim-ufo',

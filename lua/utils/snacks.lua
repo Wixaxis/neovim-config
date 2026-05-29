@@ -11,6 +11,7 @@ M.picker.infile_search = function() Snacks.picker.lines() end
 M.picker.buffers = function() Snacks.picker.buffers() end
 M.picker.help_tags = function() Snacks.picker.help() end
 M.picker.diagnostics = function() Snacks.picker.diagnostics() end
+M.picker.lsp_enable = function() require('custom.lsp').picker() end
 M.picker.lsp_references = function() Snacks.picker.lsp_references() end
 M.picker.colorscheme = function() Snacks.picker.colorschemes() end
 M.picker.git_status = function() Snacks.picker.git_status() end

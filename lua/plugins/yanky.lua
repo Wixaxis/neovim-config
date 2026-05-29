@@ -1,3 +1,4 @@
+-- TODO(pack): maybe later
 -- Provides a better yank history and paste functionality
 return {
   'gbprod/yanky.nvim',
